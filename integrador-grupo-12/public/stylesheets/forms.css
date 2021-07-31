@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Catamaran', sans-serif;
+}
+
+.containerForm {
+    background: #D0D0D0;
+    background-image: url();
+    height: 650px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form h1 {
+    text-align: center;
+    font-size: 600;
+    margin-top: 15px;
+    padding: 0;
+}
+
+form {
+    background: white;
+    box-shadow: 0 0 6px 0 rgba(255, 255, 255, 0.8);
+    max-width: 500px;
+    border-radius: 8px;
+    width: 80%
+}
+
+form .group {
+    position: relative;
+    margin: 25px;
+}
+
+form input {
+    background: none;
+    font-size: 18px;
+    padding: 10px 5px 10px 5px;
+    border: none;
+    border-bottom: 1px solid black;
+    width: 96%;
+}
+
+form input:focus {
+    outline: none;
+}
+
+form ::placeholder {
+    font-size: 16px;
+    text-align: center;
+}
+
+form label {
+    color: black;
+    font-size: 16px;
+    position: absolute;
+    left: 5px;
+    top: 10px;
+    pointer-events: none;
+}
+
+form .barra {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+form .barra::before {
+    content: "";
+    height: 1.5px;
+    width: 0%;
+    bottom: 0;
+    position: absolute;
+    background: #FFB803;
+    transition: 0.3s ease width;
+    left: 0;
+}
+
+form input:focus~.barra::before {
+    width: 100%;
+}
+
+form .check {
+    position: relative;
+}
+
+form button {
+    font-family: 'Catamaran', sans-serif;
+    background: #C1BFBF;
+    border: none;
+    display: block;
+    width: 40%;
+    margin: 50px auto;
+    height: 40px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.formLogin p {
+    text-align: center;
+}
+
+.formLogin p a {
+    text-decoration: none;
+    color: black;
+    transition: color .4s ease;
+}
+
+.formLogin p a:hover {
+    color: #FFB803;
+    text-shadow: currentColor;
+}
+
