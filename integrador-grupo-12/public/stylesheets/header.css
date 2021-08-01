@@ -1,0 +1,101 @@
+header {
+    background-color: black;
+    color: white;
+    width: 100%;
+    height: auto;
+    
+}
+
+.container-header {
+    padding: 10px 10px 0 10px;
+}
+
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icon-menu {
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.search-header {
+    display: none;
+}
+
+.top-right-header i {
+    margin: 0 10px;
+}
+
+.top-right-header a i {
+    font-size: 18px;
+    transition: color .4s ease;
+}
+
+.top-right-header a:hover i {
+    color: #FFB803;
+}
+
+.main-navbar {
+    display: none
+}
+
+.marcasNacionales,
+.marcasInternacionales,
+.paises,
+.variedades,
+.search-menu {
+    display: none;
+}
+
+header i {
+    color: white;
+}
+
+
+@media (min-width: 640px) {
+    .icon-menu {
+        display: none;
+    }
+
+    .container-header{
+        padding: 0;
+        margin: 0;
+    }
+
+    .main-navbar {
+        display: flex;
+        justify-content: space-around;
+        padding: 0;
+        margin: 0;
+        background: #111111;
+    }
+
+    .main-navbar ul {
+        display: flex;
+    }
+
+    .marcasNacionales,
+    .marcasInternacionales,
+    .paises,
+    .variedades,
+    .search-menu {
+        display: block;
+    }
+
+    .main-navbar li {
+        list-style: none;
+        margin: 15px;
+        font-size: 17px;
+    }
+
+    .main-navbar a {
+        text-transform: uppercase;
+        color: white;
+        text-decoration: none;
+    }
+
+}
+

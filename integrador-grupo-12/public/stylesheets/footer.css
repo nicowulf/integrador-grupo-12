@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     font-family: 'Catamaran', sans-serif;
 }
 
@@ -27,7 +28,7 @@ footer {
     justify-content: center;
     flex-direction: column;
     text-align: center;
-}
+    }
 
 .footer-content h3 {
     font-size: 14px;
@@ -93,10 +94,12 @@ footer {
     color: #FFB803;
 }
 
+
+
 @media (min-width: 640px) {
     .footer-content img {
         display: flex;
-        
+
     }
 
     .footer-content {
@@ -110,11 +113,5 @@ footer {
         display: none;
     }
 
-    .footer-bottom {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        left: 0;
-    }
 
 }

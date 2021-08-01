@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Catamaran', sans-serif;
+}
+
+body {
+  background-color: #3C3C3C;
+}
+
+.main-shop {
+  padding: 20px;
+}
+
+h3 {
+  color: white;
+}
+
+.container-products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.product {
+  background-color: #F8F3F3;
+  padding: 25px;
+  width: 200px;
+  height: 300px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.cart-icon {
+  color: #111111;
+  cursor: pointer;
+}
+
+.cart-icon a i {
+  font-size: 18px;
+  transition: color .4s ease;
+}
+
+.cart-icon a:hover i {
+  color: #FFB803;
+}
