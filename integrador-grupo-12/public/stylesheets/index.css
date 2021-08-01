@@ -4,12 +4,21 @@
   font-family: 'Catamaran', sans-serif;
 }
 
-body {
-  background-color: #3C3C3C;
+.container-slider-featured {
+  display: none;
+}
+
+.fondo-SLIDER {
+  max-width: 100%;
+  object-fit: cover;
 }
 
 .main-shop {
   padding: 20px;
+}
+
+.container-shop {
+  background-color: #3C3C3C;
 }
 
 h3 {
@@ -25,16 +34,21 @@ h3 {
 
 .product {
   background-color: #F8F3F3;
-  padding: 25px;
+  padding: 20px;
   width: 200px;
   height: 300px;
-  margin-bottom: 20px;
+  margin: 10px;
   text-align: center;
+}
+
+.main-article {
+  padding-top: 40px;
 }
 
 .cart-icon {
   color: #111111;
   cursor: pointer;
+  margin-top: 20px;
 }
 
 .cart-icon a i {
@@ -44,4 +58,33 @@ h3 {
 
 .cart-icon a:hover i {
   color: #FFB803;
+}
+
+/* CARRUSEL MARCAS
+.carousel-brands {
+  background-color: #BCBCBC;
+}*/
+
+.container-tips {
+  background-color: white;
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .container-tips {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+  }
+
+  .container-slider-featured {
+    display: block;
+  }
+
 }
