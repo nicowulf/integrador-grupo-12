@@ -1,17 +1,67 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>  <%= title %> </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Catamaran&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/b81a788407.js" crossorigin="anonymous"></script>
 </head>
+</html>
 
 <body>
-
     <% include ../partials/header %>
+    <div class="cart-container">
+        <div class="titles">
+            <h2>Producto</h2>
+            <h2>Cantidad</h2>
+            <h2>Precio</h2>
+        </div>
+        <div class="prod-info">
+            <div class="prod-item">
+                <img src="/images/productos/nacionales/antares/antares_Atlantica-169x300.png" width='50' height='90'
+                    alt="antares_Atlantica">
+                <h3>Antares Atlantica 473cc X6</h3>
+            </div>
+        </div>
+        <div class="prod-item">
+            <select>
+                <option>1</option>
+                 <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                 <option>5</option>
+                 <option>6</option>
+            </select>
+         </div>
+         <div class="price-info">
+             <p>$ 1.190</p>
+        </div>
+         <div class="coupon">
+             <input type="text" placeholder="Cupón de descuento">
+             <button type="submit">Aplicar cupón</button>
+        </div>
+        <div class="total">
+             <h2>Total del Carrito</h2>
+            <div class="total-partials">
+                <p>Subtotal</p>
+                <p>$ 1.190</p>
+                <br>
+                <p>Envío</p><input type="number" placeholder="Cód. Postal">
+                <p>$ 310</p>
+            </div>
+        </div>
+        <div class="final-total">
+            <p>Total</p>
+            <p>$ 1.500</p>
+        </div>
+        <div class="buy-button">
+            <button>Finalizar compra</button>
+        </div>
+    </div>
+        
 
-        <h1>Carritto de compras</h1>
-
-        <% include ../partials/footer %>
-
+    <% include ../partials/footer %>
 </body>
