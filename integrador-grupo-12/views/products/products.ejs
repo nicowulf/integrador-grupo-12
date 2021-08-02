@@ -5,13 +5,89 @@
     <title>
         <%= title %>
     </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/products.css' />
+    <link href="https://fonts.googleapis.com/css2?family=Catamaran&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/b81a788407.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
     <% include ../partials/header %>
 
-    <h1>Productos</h1>
+    <div class="container-shop">
+        <h3>Productos</h3>
+        <section class="container-products">
+            <div class="product">
+                <img src="../images/productos/nacionales/antares/antares_Atlantica-169x300.png" width='90' height='120'
+                    alt="antares_Atlantica" class="product-img">
+                <div class="main-article">
+                    <h4 class="description">Antares Atlántica</h4>
+                    <span class="price">$ 1.190</span>
+                </div>
+                <a href=""><i class="cart-icon fas fa-cart-plus"></i></a>
+            </div>
+            <div class="product">
+                <img src="../images/productos/nacionales/chachingo/chanchingo_ipa-169x300.png" width='90' height='120'
+                    alt="chachingo_IPA" class="product-img">
+                <div class="main-article">
+                    <h4 class="description">Chachingo IPA</h4>
+                    <span class="price">$ 1.100</span>
+                </div>
+                <a href="#"><i class="cart-icon fas fa-cart-plus"></i></a>
+            </div>
+            <div class="product">
+                <img src="../images/productos/nacionales/rabieta/rabieta_apa_mistica-169x300.png" width='90' height='120'
+                    alt="rabieta_APA" class="product-img">
+                <div class="main-article">
+                    <h4 class="description">Rabieta APA Mística</h4>
+                    <span class="price">$ 1.000</span>
+                </div>
+                <a href="#"><i class="cart-icon fas fa-cart-plus"></i></a>
+            </div>
+            <div class="product">
+                <img src="../images/productos/nacionales/pampa/amber_Pampa-1-169x300.png" width='90' height='120'
+                    alt="pampa_Amber" class="product-img">
+                <div class="main-article">
+                    <h4 class="description">Pampa Amber</h4>
+                    <span class="price">$ 1.250</span>
+                </div>
+                <a href="#"><i class="cart-icon fas fa-cart-plus"></i></a>
+            </div>
+            <div class="product">
+                <img src="../images/productos/internacionales/alemania/cerveza_weidmannPilsenerLata500ml_grande.png"
+                    width='90' height='120' alt="weidmann_Pilsener" class="product-img">
+                <div class="main-article">
+                    <h4 class="description">Weidmann Pilsener</h4>
+                    <span class="price">$ 1.320</span>
+                </div>
+                <a href="#"><i class="cart-icon fas fa-cart-plus"></i></a>
+            </div>
+            <div class="product">
+                <img src="../images/productos/internacionales/holanda/oranjeboom-extra-strong.png" width='90' height='120'
+                    alt="oranjeboom_ExtraStrong" class="product-img">
+                <div class="main-article">
+                    <h4 class="description">Oranjeboom Extra Strong</h4>
+                    <span class="price">$ 1.440</span>
+                </div>
+                <a href="#"><i class="cart-icon fas fa-cart-plus"></i></a>
+            </div>
+            <div class="product">
+                <img src="../images/productos/internacionales/irlanda/guinness-Lata.png" width='90' height='120'
+                    alt="guinness_Draught" class="product-img">
+                <div class="main-article">
+                    <h4 class="description">Guinness Draught</h4>
+                    <span class="price">$ 1.480</span>
+                </div>
+                <a href="#"><i class="cart-icon fas fa-cart-plus"></i></a>
+            </div>
+            <div class="product">
+                <img src="../images/productos/internacionales/belgica/beliriumNocturum_312x312.png" width='90' height='120'
+                    alt="belirium_Nocturnum" class="product-img">
+                <div class="main-article">
+                    <h4 class="description">Belirium Nocturnum</h4>
+                    <span class="price">$ 1.380</span>
+                </div>
+                <a href="#"><i class="cart-icon fas fa-cart-plus"></i></a>
+            </div>
 
     <% include ../partials/footer %>
 
