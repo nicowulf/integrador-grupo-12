@@ -1,18 +1,68 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>
-        <%= title %>
-    </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title><%= title %></title>
+    <link href="https://fonts.googleapis.com/css2?family=Catamaran&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='/stylesheets/forms.css' />
 </head>
 <body>
-
     <% include ../partials/header %>
-
-    <h1>Agregar nuevo producto</h1>
-
+    <div class="containerForm">
+        <form action="/products/newProduct" method="POST" id="newProductForm">
+            <div class="form">
+                <h1>Agregar nuevo producto</h1>
+                <div class="group">
+                    <label for="">Nombre del producto</label><br>
+                    <input type="text" placeholder="Nombre del producto" name='prod-name' id='prod-name'><span class="barra"></span>
+                </div>
+                <div class="group">
+                    <label for="">Descripción</label><br>
+                    <input type="tex" placeholder="Descripción" name='description' id='description'><span class="barra"></span>
+                </div>
+                <div class="group">
+                    <label for="">Imágenes</label><br>
+                    <input type="file" placeholder="Seleccionar imágenes" name='images' accept=".jpg,.png" id='images' multiple><span class="barra"></span>
+                </div>
+                <div class="group">
+                    <label for="">Origen</label>
+                    <br>
+                    <br>
+                    <select>
+                        <option>Nacionales</option>
+                        <option>Internacionalesacionales</option>
+                    </select>
+                </div>
+                <div class="group">
+                    <label for="">Variedades</label>
+                    <br>
+                    <br>
+                    <select>
+                        <option>IPA</option>
+                        <option>APA</option>
+                        <option>Golden</option>
+                        <option>Amber</option>
+                        <option>Porter</option>
+                        <option>Stout</option>
+                        <option>Cream</option>
+                        <option>Honey</option>
+                        <option>Lager</option>
+                    </select>
+                </div>
+                <div class="group">
+                    <label for="">Precio</label><br>
+                    <input type="text" placeholder="Precio" name="price" ><span               class="barra"></span>
+                </div>
+                <div class="buttons">
+                    <div>
+                        <button type="submit">Agregar producto</button>
+                    </div>
+                    <div>
+                        <button type="submit">Editar producto</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>    
     <% include ../partials/footer %>
-
 </body>
+</html>

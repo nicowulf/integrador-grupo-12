@@ -7,7 +7,7 @@
 .containerForm {
     background: #D0D0D0;
     background-image: url();
-    height: 650px;
+    height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -34,6 +34,7 @@ form .group {
 }
 
 form input {
+    margin-top: 20px;
     background: none;
     font-size: 18px;
     padding: 10px 5px 10px 5px;
@@ -58,6 +59,12 @@ form label {
     left: 5px;
     top: 10px;
     pointer-events: none;
+    margin-bottom: 20px;
+}
+
+form select {
+    padding: 10px;
+    font-size: 16px;
 }
 
 form .barra {
@@ -88,6 +95,7 @@ form .check {
 form button {
     font-family: 'Catamaran', sans-serif;
     background: #C1BFBF;
+    font-weight: bold;
     border: none;
     display: block;
     width: 40%;
