@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>
-        <%= title %>
-    </title>
-    <link rel='stylesheet' href='/stylesheets/forms.css' />
-</head>
-
-<body>
-
-    <% include ../partials/header %>
+<% include ../partials/head %>
+    <body>
+        <% include ../partials/header %>
 
     <div class="containerForm">
         <form action="/login" method="POST" id="loginForm">
@@ -32,5 +23,5 @@
     </div>
 
     <% include ../partials/footer %>
-
-</body>
+    </body>
+</html>
