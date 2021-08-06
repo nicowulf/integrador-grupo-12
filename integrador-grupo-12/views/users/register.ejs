@@ -1,8 +1,9 @@
 <% include ../partials/head %>
+
     <body>
         <% include ../partials/header %>
 
-    <div class="containerForm">
+            <!-- <div class="containerForm">
         <form action="/register" method="POST" id="registerForm">
             <div class="form">
                 <h1>Registro</h1>
@@ -28,8 +29,7 @@
                         class="barra"></span>
                 </div>
                 <div class="check">
-                    <input type="checkbox" name="acceptTerms" value="a" id="checkbox">
-                    <label for="checkbox">Acepto los Términos y Condiciones y la Política de Privacidad</label>
+                    <label<input type="checkbox" name="acceptTerms" value="a" id="checkbox">>Acepto los Términos y Condiciones y la Política de Privacidad</label>
                 </div>
                 <div>
                     <div>
@@ -39,8 +39,39 @@
             </div>
         </form>
 
-    </div>
+    </div> -->
 
-    <% include ../partials/footer %>
-</body>
-</html>
+            <div class="register-wrap">
+                <div class="register-form">
+                    <h1>Registro</h1>
+                    <form action="">
+                        <div class="input-wrap">
+                            <input type="text" placeholder="Usuario">
+                        </div>
+                        <div class="input-wrap">
+                            <input type="text" placeholder="Nombre">
+                        </div>
+                        <div class="input-wrap">
+                            <input type="text" placeholder="Apellido">
+                        </div>
+                        <div class="input-wrap">
+                            <input type="email" placeholder="E-mail">
+                        </div>
+                        <div class="input-wrap">
+                            <input type="password" placeholder="Contraseña">
+                        </div>
+                        <div class="input-wrap">
+                            <input type="checkbox"> 
+                            <p>Acepto los Términos y Condiciones y la Política de Privacidad.</p>
+                        </div>
+                        <div class="input-wrap">
+                            <button type="submit">Registrarse</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <% include ../partials/footer %>
+    </body>
+
+    </html>
