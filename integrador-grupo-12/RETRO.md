@@ -1,3 +1,30 @@
+RETRO SPRINT 4
+
+1. Comenzar a hacer
+Coordinar mejor los tiempos.
+
+2. Hacer más
+Mayor comunicación con los compañeros.
+Mejorar el manejo de Trello para simplificar las actividades.
+Repartir mejor las tareas.
+Reunirse con mayor frecuencia, en forma más breve para poder ver los avances y solucionar mejor los problemas que surjan.
+Aportar ideas entre todos para resolver el sprint y solucionar los problemas que puedan aparecer al codear.
+
+3. Continuar haciendo
+Compartir las problemáticas con el grupo para solucionar más rápidamente.
+Manejar mejor los tiempos de entrega.
+Corrección de errores y detalles que trae el proyecto de sprints anteriores.
+Estar al día con los contenidos teóricos para poder incorporarlos al proyecto de la manera más sencilla posible.
+
+4. Hacer menos
+Aplazar reuniones.
+
+5. Dejar de hacer
+Nada de alargar los plazos.
+
+
+RETRO SPRINT 3
+
 1. Comenzar a hacer
 Crear wire Frame Y bocetos del website
 Coordinar mejor los horarios
