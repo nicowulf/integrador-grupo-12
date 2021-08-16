@@ -60,61 +60,6 @@ img.fondo-slider {
   object-fit: cover;
 }
 
-.main-shop {
-  padding: 1.25rem;
-}
-
-.container-shop {
-  background-color: #3C3C3C;
-  padding: 24px;
-}
-
-h3 {
-  color: white;
-  font-size: 1.4375rem;
-  margin-bottom: 0.625rem;
-}
-
-.container-products {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-
-}
-
-.product {
-  background-color: #F8F3F3;
-    padding: 20px;
-    width: 200px;
-    height: 300px;
-    margin-bottom: 10px;
-    margin-right: 10px;
-    text-align: center;
-}
-
-.main-article {
-  padding-top: 40px;
-}
-
-.main-article h4 {
-  font-size: 0.9375rem;
-}
-
-.cart-icon {
-  color: #111111;
-  cursor: pointer;
-  margin-top: 20px;
-}
-
-.cart-icon a i {
-  font-size: 18px;
-  transition: color .4s ease;
-}
-
-.cart-icon a:hover i {
-  color: #FFB803;
-}
 
 /* CARRUSEL MARCAS
 .carousel-brands {
@@ -134,6 +79,7 @@ h3 {
 
 
 @media (max-width: 63.9375em) {
+  
   .container-tips {
     display: flex;
     justify-content: space-between;
@@ -145,6 +91,8 @@ h3 {
   .tip:not(:last-child) {
     margin-bottom: 10px;
   }
+
+  
 }
 
 .container-slider-featured {
