@@ -1,29 +1,28 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Catamaran', sans-serif;
-}
 
 .detail-container{
-    border-top: solid 1px black;
+    padding: 2rem;
 }
 
 .product-main {
     text-align: center;
+    margin-bottom: 1.25rem;
 }
 
 .product-main h1 {
-    font-size: 18px;
+    font-size: 1.125rem;
 }
 
 .product-description {
-    font-size: 13px;
-    margin: 25px;
+    font-size: 0.8125rem;
+    font-size: 0.8125rem;
+    margin-left: 2rem;
+    padding-right: 2rem;
+    padding-left: 2rem;
 }
 
 .description-text {
     text-align: justify;
+    font-size: 1rem;
 }
 
 .data-title {
@@ -32,37 +31,41 @@
 }
 
 .price {
-    font-size: 14px;
+    flex-direction: column;
+}
+
+.price p {
+    margin-bottom: 1.5625rem;
+    font-size: 1rem;
     font-weight: bold;
     text-align: right;
 }
 
-.buy-button {
-    font-family: 'Catamaran', sans-serif;
-    font-weight: bold;
-    font-size: 16px;
-    background: #C1BFBF;
-    border: none;
-    display: block;
-    min-width: 35%;
-    margin: 40px auto;
-    height: 40px;
-    cursor: pointer;
+.price a {
+    text-align: center;
+    text-transform: uppercase;
 }
+
 
 @media (min-width: 640px) {
     .detail-container {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        width: 80%;
+        margin: 0 auto;
     }
 
     .price {
-        margin-top: 15px;
+        text-align: center;
+    }
+
+    .price p {
+        margin-top: 1rem;
         text-align: left;
     }
 
     .product-main {
-        margin-bottom: 20px;
+        margin-bottom: 1.25rem;
     }
 }
