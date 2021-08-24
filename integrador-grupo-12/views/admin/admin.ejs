@@ -34,8 +34,8 @@
                     <td><%= product.id%> </td>
                     <td><%= product.nombre%> </td>
                     <td><a href="/admin/detail/<%= product.id%>">Ver</a></td>
-                    <td><a href="#"><%= product.id%></a></td>
-                    <td><a href="#"><%= product.id%></a></td>
+                    <td><a href="/admin/edit/<%= product.id%>">Editar</a></td>
+                    <td><a href="/admin/delete/<%= product.id%>">Borrar</a></td>
                   </tr>
                   <% }); %>
                 </tbody>

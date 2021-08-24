@@ -1,34 +1,18 @@
 [
   {
-    "id": "",
+    "id": 0,
     "nombre": "",
     "descripcion": "",
-    "precio": "",
+    "precio": 0,
     "descuento": "",
     "imagen": ""
   },
   {
-    "id": "1",
-    "nombre": "Producto 1",
-    "descripcion": "Prueba 1",
-    "precio": "111111",
-    "descuento": "30",
-    "imagen": "product-1629800738390.png"
-  },
-  {
-    "id": "11",
-    "nombre": "Producto 2",
-    "descripcion": "Prueba 2",
-    "precio": "123456",
+    "id": 1,
+    "nombre": "Prueba 1",
+    "descripcion": "Descripcion Prueba 1",
+    "precio": "123123123",
     "descuento": "15",
-    "imagen": "product-1629800769927.png"
-  },
-  {
-    "id": "111",
-    "nombre": "Producto 3",
-    "descripcion": "descripcion 3",
-    "precio": "1234",
-    "descuento": "0",
-    "imagen": "product-1629800813518.png"
+    "imagen": "product-1629829220889.png"
   }
 ]
