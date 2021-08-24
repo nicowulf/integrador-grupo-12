@@ -3,17 +3,15 @@
     <body>
 
         <% include ../partials/header %>
-            <h1><%= myProduct.nombre%></h1>
             <div class="detail-container">
                 <div class="product-main">
                     <img src="/imagenes/products/<%= myProduct.imagen%>" width='250'
                         height='350' alt="antares_Atlantica">
-                    <h1>Antares Atlantica 473cc X6</h1>
+                    <h1><%= myProduct.nombre%> X6</h1>
                 </div>
                 <div class="product-description">
                     <div class="description-text">
-                        <p>Se trata de una cerveza bien argentina, sedosa, balanceada y delicada, una cerveza fácil
-                            de tomar, rubia, liviana y refrescante, con sutiles sabores y aromas frutados,
+                        <p><%= myProduct.descripcion%>
                             <br> Cont. Neto por lata 473cm3
                         </p>
                     </div>
@@ -25,7 +23,8 @@
                         <p>Amargor: Bajo</p>
                     </div>
                     <div class="price flex flex-ai-center flex-jc-sb ">
-                        <p class="price">Pack x6 <br>$1.190</p>
+                        <p class="price">Pack x6 <br>$ <%= myProduct.precio%></p>
+                        <a href="#" class="button">Agregar al Carrito</a>
                         <a href="#" class="button">Agregar al Carrito</a>
                     </div>
                 </div>
