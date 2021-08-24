@@ -1,10 +1,12 @@
 <% include ../partials/head %>
 
     <body>
+
         <% include ../partials/header %>
+            <h1><%= myProduct.nombre%></h1>
             <div class="detail-container">
                 <div class="product-main">
-                    <img src="/images/productos/nacionales/antares/antares_Atlantica-169x300.png" width='250'
+                    <img src="/imagenes/products/<%= myProduct.imagen%>" width='250'
                         height='350' alt="antares_Atlantica">
                     <h1>Antares Atlantica 473cc X6</h1>
                 </div>
@@ -29,8 +31,7 @@
                 </div>
 
             </div>
-
-            <% include ../partials/footer %>
+        <% include ../partials/footer %>
     </body>
 
-    </html>
+</html>        
