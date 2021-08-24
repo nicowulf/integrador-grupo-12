@@ -18,6 +18,7 @@ const adminController = {
             id: lastProduct.id +1,
             nombre: req.body.nombre,
             descripcion: req.body.descripcion,
+            origen: req.body.origen,
             precio: req.body.precio,
             descuento: req.body.descuento,
             imagen: req.file.filename

@@ -1,18 +1,56 @@
 [
   {
-    "id": 0,
-    "nombre": "",
-    "descripcion": "",
-    "precio": 0,
-    "descuento": "",
-    "imagen": ""
+    "nombre": "luis sebastian",
+    "descripcion": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae et perspiciatis voluptas eos aperiam quis, quidem ex fugiat nesciunt officiis expedita impedit fuga vero consequatur tenetur ab officia, molestiae provident.",
+    "precio": "11",
+    "descuento": "30",
+    "oldImagen": "",
+    "id": "0",
+    "imagen": "product-1629834066886.png"
   },
   {
-    "id": 1,
     "nombre": "Prueba 1",
     "descripcion": "Descripcion Prueba 1",
     "precio": "123123123",
-    "descuento": "15",
+    "descuento": "30",
+    "oldImagen": "product-1629829220889.png",
+    "id": "1",
     "imagen": "product-1629829220889.png"
+  },
+  {
+    "id": 2,
+    "nombre": "luis sebastian",
+    "descripcion": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae et perspiciatis voluptas eos aperiam quis, quidem ex fugiat nesciunt officiis expedita impedit fuga vero consequatur tenetur ab officia, molestiae provident.",
+    "origen": "nacional",
+    "precio": "12313",
+    "descuento": "30",
+    "imagen": "product-1629831161862.png"
+  },
+  {
+    "id": 3,
+    "nombre": "prueba 2",
+    "descripcion": "rubia",
+    "origen": "Internacional",
+    "precio": "123123123",
+    "descuento": "30",
+    "imagen": "product-1629833770735.png"
+  },
+  {
+    "id": 4,
+    "nombre": "luis sebastian",
+    "descripcion": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae et perspiciatis voluptas eos aperiam quis, quidem ex fugiat nesciunt officiis expedita impedit fuga vero consequatur tenetur ab officia, molestiae provident.",
+    "origen": "nacional",
+    "precio": "123546",
+    "descuento": "30",
+    "imagen": "product-1629834094359.png"
+  },
+  {
+    "id": 5,
+    "nombre": "luis sebastian",
+    "descripcion": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae et perspiciatis voluptas eos aperiam quis, quidem ex fugiat nesciunt officiis expedita impedit fuga vero consequatur tenetur ab officia, molestiae provident.",
+    "origen": "nacional",
+    "precio": "12312312313",
+    "descuento": "15",
+    "imagen": "product-1629834209441.png"
   }
 ]

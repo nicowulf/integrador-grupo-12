@@ -9,54 +9,22 @@
     
     <main class="home-main">
       <div class="container-shop">
-        <h3>Productos</h3>
-          <section class="container-products"> 
-            <div class="product">
-              <a href="products/productDetail/id:"><img src="../images/productos/nacionales/antares/antares_Atlantica-169x300.png" width='90' height='120'
-                alt="antares_Atlantica" class="product-img">
-              </a>
-              <div class="main-article">
-               <h4 class= "description">Antares Atlántica</h4>
-               <span class= "price">$ 1.190</span>
-              </div>  
-              <a href="#"><i class="cart-icon fas fa-cart-plus"></i></a>
-            </div>
-            <div class="product">
-              <a href="products/productDetail/id:"><img src="../images/productos/nacionales/chachingo/chanchingo_ipa-169x300.png" width='90' height='120'
-                alt="chachingo_IPA" class="product-img"></a>
-              <div class="main-article">
-                <h4 class="description">Chachingo IPA</h4>
-                <span class="price">$ 1.100</span>
-              </div>
-              <a href="#"><i class="cart-icon fas fa-cart-plus"></i></a>
-            </div>
-            <div class="product">
-              <a href="products/productDetail/id:"><img src="../images/productos/nacionales/rabieta/rabieta_apa_mistica-169x300.png" width='90' height='120'
-                alt="rabieta_APA" class="product-img"></a>
-              <div class="main-article">
-                <h4 class="description">Rabieta APA Mística</h4>
-                <span class="price">$ 1.000</span>
-              </div>
-              <a href="#"><i class="cart-icon fas fa-cart-plus"></i></a>
-            </div>
-            <div class="product">
-              <a href="products/productDetail/id:"><img src="../images/productos/nacionales/pampa/amber_Pampa-1-169x300.png" width='90' height='120'
-                alt="pampa_Amber" class="product-img"></a>
-              <div class="main-article">
-                <h4 class="description">Pampa Amber</h4>
-                <span class="price">$ 1.250</span>
-              </div>
-              <a href="#"><i class="cart-icon fas fa-cart-plus"></i></a>
-            </div>
-            <div class="product">
-              <a href="products/productDetail/id:"><img src="../images/productos/internacionales/alemania/cerveza_weidmannPilsenerLata500ml_grande.png" width='90' height='120'
-                alt="weidmann_Pilsener" class="product-img"></a>
-              <div class="main-article">
-                <h4 class="description">Weidmann Pilsener</h4>
-                <span class="price">$ 1.320</span>
-              </div>
-              <a href="#"><i class="cart-icon fas fa-cart-plus"></i></a>
-            </div>
+        <h3>Productos Destacados</h3>
+          <section class="container-products">
+            <% products.forEach(product => { %>
+              <% if (product.descuento == 30) { %> 
+                <div class="product">
+                  <a href="products/productDetail/id:"><img src="/imagenes/products/<%= product.imagen%>" width='90' height='120'
+                    alt="<%= product.nombre%>" class="product-img">
+                  </a>
+                  <div class="main-article">
+                  <h4 class= "description"><%= product.nombre%></h4>
+                  <span class= "price">$ <%= product.precio%></span>
+                  </div>  
+                  <a href="#"><i class="cart-icon fas fa-cart-plus"></i></a>
+                </div>
+              <% } %>
+            <% }); %>
           </section>
       </div>
      
