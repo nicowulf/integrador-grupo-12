@@ -43,14 +43,5 @@
     "precio": "123546",
     "descuento": "30",
     "imagen": "product-1629834094359.png"
-  },
-  {
-    "id": 5,
-    "nombre": "luis sebastian",
-    "descripcion": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae et perspiciatis voluptas eos aperiam quis, quidem ex fugiat nesciunt officiis expedita impedit fuga vero consequatur tenetur ab officia, molestiae provident.",
-    "origen": "nacional",
-    "precio": "12312312313",
-    "descuento": "15",
-    "imagen": "product-1629834209441.png"
   }
 ]
