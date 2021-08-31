@@ -1,6 +1,7 @@
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
+const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const methodOverride =  require('method-override')
@@ -8,9 +9,14 @@ const methodOverride =  require('method-override')
 const indexRouter = require('./routes/')
 const productsRouter = require('./routes/products')
 const usersRouter = require('./routes/users')
-const adminRouter = require('./routes/admin')
+const adminRouter = require('./routes/admin');
+const { Session } = require('inspector');
 
 const app = express();
+
+// Middleware Session
+const acceso = require('./middlewares/acceso');
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -22,6 +28,18 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'))
+
+app.use(session({
+  secret : 'topSecret',
+  resave: true,
+  saveUninitialized: true,
+}))
+
+//Middleware Cookies
+app.use(cookieParser());
+
+// Middleware Acceso
+app.use(acceso);
 
 
 // Router

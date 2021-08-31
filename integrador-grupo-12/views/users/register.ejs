@@ -3,24 +3,36 @@
         <% include ../partials/header %>
 
             <div class="form-wrap">
+                <% if(typeof(errors) != 'undefined'){%>
+                    <ul class="alert alert-danger">
+                       <% errors.forEach(error => { %>
+                          <li><%= error.msg%></li>
+                       <%});%>
+                     </ul>
+                 <%}%>   
                 <div class="form register-form">
                     <h1>Registro</h1>
-                    <form action="">
+                    <form action="/users/register" method="POST" enctype="multipart/form-data">
                         <div class="input-wrap">
-                            <input type="text" placeholder="Usuario">
+                            <input required type="text" class="form-control" name="first_name" placeholder="Nombre" value="<%= typeof old != 'undefined' ? old.first_name : '' %>">
+                            
                         </div>
                         <div class="input-wrap">
-                            <input type="text" placeholder="Nombre">
+                            <input type="text" class="form-control" name="last_name" placeholder="Apellido" value="<%= typeof old != 'undefined' ? old.last_name : '' %>">
                         </div>
                         <div class="input-wrap">
-                            <input type="text" placeholder="Apellido">
+                            <input type="email" class="form-control" name="email" placeholder="Email" value="<%= typeof old != 'undefined' ? old.email : '' %>">
                         </div>
                         <div class="input-wrap">
-                            <input type="email" placeholder="E-mail">
+                            <input type="password" class="form-control" name="password" placeholder="Contraseña"  >
                         </div>
                         <div class="input-wrap">
-                            <input type="password" placeholder="Contraseña">
+                            <input type="password" class="form-control" name="confirm_password" placeholder="Confirma Contraseña" >
                         </div>
+                        <div class="input-wrap">
+                            <input type="file"   name="avatar"  placeholder="Debes eligir tu avatar...">
+                        </div>
+            
                         <div class="input-wrap">
                             <input type="checkbox">
                             <p>Acepto los Términos y Condiciones y la Política de Privacidad.</p>

@@ -4,6 +4,7 @@
 }
 
 .product-main {
+    width: 30%;
     text-align: center;
     margin-bottom: 1.25rem;
 }
@@ -13,11 +14,10 @@
 }
 
 .product-description {
+    width: 70%;
     font-size: 0.8125rem;
     font-size: 0.8125rem;
     margin-left: 2rem;
-    padding-right: 2rem;
-    padding-left: 2rem;
 }
 
 .description-text {

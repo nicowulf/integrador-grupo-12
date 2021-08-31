@@ -9,15 +9,6 @@
     "imagen": "product-1629834066886.png"
   },
   {
-    "nombre": "Prueba 1",
-    "descripcion": "Descripcion Prueba 1",
-    "precio": "123123123",
-    "descuento": "30",
-    "oldImagen": "product-1629829220889.png",
-    "id": "1",
-    "imagen": "product-1629829220889.png"
-  },
-  {
     "id": 2,
     "nombre": "luis sebastian",
     "descripcion": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae et perspiciatis voluptas eos aperiam quis, quidem ex fugiat nesciunt officiis expedita impedit fuga vero consequatur tenetur ab officia, molestiae provident.",
@@ -46,11 +37,24 @@
   },
   {
     "id": 5,
-    "nombre": "luis sebastian",
-    "descripcion": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae et perspiciatis voluptas eos aperiam quis, quidem ex fugiat nesciunt officiis expedita impedit fuga vero consequatur tenetur ab officia, molestiae provident.",
-    "origen": "nacional",
-    "precio": "12312312313",
+    "nombre": "Quillmes",
+    "descripcion": "descripcion 2",
+    "origen": "argentina",
+    "marcas": "pampa",
+    "precio": "123456",
     "descuento": "15",
-    "imagen": "product-1629834209441.png"
+    "imagen": "product-1629846773091.png"
+  },
+  {
+    "id": 6,
+    "nombre": "Luis",
+    "descripcion": "11312313123123",
+    "origen": "belgica",
+    "marcas": "beagle",
+    "variedad": "ipa",
+    "amargor": "medio",
+    "precio": "123123",
+    "descuento": "15",
+    "imagen": "product-1629847392026.png"
   }
 ]

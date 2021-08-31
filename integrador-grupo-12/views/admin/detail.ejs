@@ -18,15 +18,13 @@
                     <br>
                     <div class="product-data">
                         <p class="data-title">Ficha Técnica:</p>
-                        <p><%= myProduct.origen%></p>
-                        <p>Alcohol: 5%</p>
-                        <p>IBU: 18</p>
-                        <p>Amargor: Bajo</p>
+                        <p>Origen: <%= myProduct.origen%></p>
+                        <p>Variedad: <%= myProduct.variedad%></p>
+                        <p>Amargor: <%= myProduct.amargor%></p>
                     </div>
                     <div class="price flex flex-ai-center flex-jc-sb ">
                         <p class="price">Pack x6 <br>$ <%= myProduct.precio%></p>
-                        <a href="#" class="button">Agregar al Carrito</a>
-                        <a href="#" class="button">Agregar al Carrito</a>
+                        <a href="/admin" class="button">Volver</a>
                     </div>
                 </div>
 
