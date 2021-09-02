@@ -6,16 +6,21 @@
             <div class="form-wrap">
                 <div class="form login-form">
                     <h1>iniciar sesion</h1>
-                    <form action="">
+                    <form method="POST" action='/users/login'>
                         <div class="input-wrap">
-                            <input type="text" placeholder="Usuario o E-mail">
+                            <input type="email" placeholder="E-mail" name="email" >
+                            <% if (locals.errors && errors.email) { %>
+                                <div class='text-danger'>
+                                    <%= errors.email.msg %>
+                                </div>
+                            <% } %>
                         </div>
                         <div class="input-wrap">
-                            <input type="password" placeholder="Contraseña">
+                            <input type="password" placeholder="Contraseña" name="password">
                         </div>
                         <div class="input-wrap login">
                             <button type="submit">Iniciar Sesion</button>
-                            <input type="checkbox">
+                            <input type="checkbox" name="remember_user">
                             <p>Recordarme</p>
                         </div>
                         <div class="form-botton">
@@ -27,7 +32,6 @@
                             </div>
                         </div>
                     </form>
-                    
                 </div>
             </div>
 

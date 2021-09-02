@@ -3,44 +3,68 @@
         <% include ../partials/header %>
 
             <div class="form-wrap">
-                <% if(typeof(errors) != 'undefined'){%>
-                    <ul class="alert alert-danger">
-                       <% errors.forEach(error => { %>
-                          <li><%= error.msg%></li>
-                       <%});%>
-                     </ul>
-                 <%}%>   
                 <div class="form register-form">
                     <h1>Registro</h1>
-                    <form action="/users/register" method="POST" enctype="multipart/form-data">
-                        <div class="input-wrap">
-                            <input required type="text" class="form-control" name="first_name" placeholder="Nombre" value="<%= typeof old != 'undefined' ? old.first_name : '' %>">
-                            
-                        </div>
-                        <div class="input-wrap">
-                            <input type="text" class="form-control" name="last_name" placeholder="Apellido" value="<%= typeof old != 'undefined' ? old.last_name : '' %>">
-                        </div>
-                        <div class="input-wrap">
-                            <input type="email" class="form-control" name="email" placeholder="Email" value="<%= typeof old != 'undefined' ? old.email : '' %>">
-                        </div>
-                        <div class="input-wrap">
-                            <input type="password" class="form-control" name="password" placeholder="Contraseña"  >
-                        </div>
-                        <div class="input-wrap">
-                            <input type="password" class="form-control" name="confirm_password" placeholder="Confirma Contraseña" >
-                        </div>
-                        <div class="input-wrap">
-                            <input type="file"   name="avatar"  placeholder="Debes eligir tu avatar...">
-                        </div>
-            
-                        <div class="input-wrap">
-                            <input type="checkbox">
-                            <p>Acepto los Términos y Condiciones y la Política de Privacidad.</p>
-                        </div>
-                        <div class="input-wrap">
-                            <button type="submit">Registrarse</button>
-                        </div>
-                    </form>
+                        <form method="POST" action='/users/register' enctype="multipart/form-data">
+                                                        <div class="input-wrap">
+                                <input type="text" placeholder="Nombre" name="first_name" 
+                                value="<%= locals.oldData ? oldData.first_name : null %>">
+                                <% if (locals.errors && errors.first_name) { %>
+                                    <div class='text-danger'>
+                                        <%= errors.first_name.msg %>
+                                    </div>
+                                    <% } %>
+                            </div>
+                            <div class="input-wrap">
+                                <input type="text" placeholder="Apellido" name="last_name"
+                                value="<%= locals.oldData ? oldData.last_name : null %>">
+                                <% if (locals.errors && errors.last_name) { %>
+                                    <div class='text-danger'>
+                                        <%= errors.last_name.msg %>
+                                    </div>
+                                    <% } %>
+                            </div>
+                            <div class="input-wrap">
+                                <input type="email" placeholder="E-mail" name="email"
+                                value="<%= locals.oldData ? oldData.email : null %>">
+                                <% if (locals.errors && errors.email) { %>
+                                    <div class='text-danger'>
+                                        <%= errors.email.msg %>
+                                    </div>
+                                    <% } %>
+                            </div>
+                            <div class="input-wrap">
+                                <input type="password" placeholder="Contraseña" name="password">
+                                    <% if (locals.errors && errors.password) { %>
+                                    <div class='text-danger'>
+                                        <%= errors.password.msg %>
+                                    </div>
+                                    <% } %>
+                            </div>
+                            <div class="input-wrap">
+                                <input type="password" placeholder="Confirmar contraseña" name="confirm_password">
+                                <% if (locals.errors && errors.confirm_password) { %>
+                                    <div class='text-danger'>
+                                        <%= errors.confirm_password.msg %>
+                                    </div>
+                                <% } %>
+                            </div>
+                            <div class="input-wrap">
+                                <input type="file" placeholder="Imagen de perfil" name="avatar">
+                                <% if (locals.errors && errors.avatar) { %>
+                                    <div class='text-danger'>
+                                        <%= errors.avatar.msg %>
+                                    </div>
+                                    <% } %>
+                            </div>
+                            <div class="input-wrap">
+                                <input type="checkbox" required>
+                                <p>Acepto los Términos y Condiciones y la Política de Privacidad.</p>
+                            </div>
+                            <div class="input-wrap">
+                                <button type="submit">Registrarse</button>
+                            </div>
+                        </form>
                 </div>
             </div>
 

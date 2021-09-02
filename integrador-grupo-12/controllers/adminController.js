@@ -19,9 +19,6 @@ const adminController = {
             nombre: req.body.nombre,
             descripcion: req.body.descripcion,
             origen: req.body.origen,
-            marcas: req.body.marcas,
-            variedad: req.body.variedad,
-            amargor: req.body.amargor,
             precio: req.body.precio,
             descuento: req.body.descuento,
             imagen: req.file.filename
