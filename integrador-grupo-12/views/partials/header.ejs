@@ -23,22 +23,23 @@
 
     <div class="header__menu has-fade">
       <a href="/products">TIENDA</a>
-      <a href="">NACIONALES</a>
-      <a href="">INTERNACIONALES</a>
-      <a href="">VARIEDADES</a>
-      <a href="">MARCAS</a>
-      <a href="">CONTACTO</a>
+      <a href="/products">NACIONALES</a>
+      <a href="/products">INTERNACIONALES</a>
+      <a href="/products">VARIEDADES</a>
+      <a href="/products">MARCAS</a>
+      <a href="/main/contact">CONTACTO</a>
     </div>
 
     <div class="header__button hide-for-mobile">
       <% if (locals.isLogged) { %>
         
         
-          <a class="nav-link dropdown-toggle" href="#" id="dropUser" role="button" data-bs-toggle="dropdown"
+          <a  class="nav-link dropdown-toggle" href="/users/profile" id="dropUser" role="button" data-bs-toggle="dropdown"
             aria-expanded="false">
             <img src="/images/usuarios/<%= locals.userLogged.avatar %>" width="40" style="border-radius: 100%;">
             Hola <%= locals.userLogged.first_name %>
           </a>
+          <a href="/admin" class="button">ADMINISTRAR</a>
           <a href="" class="button">CARRITO</a>
                 
 

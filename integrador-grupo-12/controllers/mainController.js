@@ -9,6 +9,10 @@ const mainController = {
             products
         });
     },
+
+    contact: (req,res) => {
+        res.render("/contact")
+    },
     
 }
 

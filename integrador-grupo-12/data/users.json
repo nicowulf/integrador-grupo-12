@@ -70,5 +70,14 @@
   "password": "$2a$10$li96LgSTMBS9Bs.cOXfelOH/NmAitLHTQSqf22gOOFM0rrOMoPYhq",
   "confirm_password": "$2a$10$G4.5RpYnFUDoFRIMi2XzuOP4TTvjnBuMHZfdXtw7.zkbwTcd9aEIC",
   "avatar": "1630531405193_img.jpg"
+ },
+ {
+  "id": 9,
+  "first_name": "Juan",
+  "last_name": "Perez",
+  "email": "jp@gmail.com",
+  "password": "$2a$10$dKQs4JBdZ5kO/3xH/ZHlKu1.2MZ70jvecN2GI4m9C6AUBOqETO3l.",
+  "confirm_password": "$2a$10$Xs0hYO4O5XrARfZJeAjsNODGS27gLWKXDkSlYU2zbPsgBt/H8h.Jm",
+  "avatar": "1630626986365_img.jpg"
  }
 ]
