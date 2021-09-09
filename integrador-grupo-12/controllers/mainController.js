@@ -11,7 +11,9 @@ const mainController = {
     },
 
     contact: (req,res) => {
-        res.render("/contact")
+        res.render(path.resolve(__dirname,'../main/contact'), {
+            title:"Contacto",
+        });
     },
     
 }

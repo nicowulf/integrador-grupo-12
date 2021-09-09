@@ -6,7 +6,7 @@
         <div class="form-wrap">
             <div class="form register-form">
                 <h1>Contacto</h1>
-                    <form action="">
+                    <form form method="POST" action='/main/contact'>
                     <div class="input-wrap">
                         <input type="text" placeholder="Nombre" name="first_name" value="<%= locals.oldData ? oldData.first_name : null %>">
                         <% if (locals.errors && errors.first_name) { %>

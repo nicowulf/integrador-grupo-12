@@ -14,11 +14,11 @@
 
     <div class="header__links hide-for-mobile">
       <a href="/products">TIENDA</a>
-      <a href="">NACIONALES</a>
-      <a href="">INTERNACIONALES</a>
-      <a href="">VARIEDADES</a>
-      <a href="">MARCAS</a>
-      <a href="">CONTACTO</a>
+      <a href="/products">NACIONALES</a>
+      <a href="/products">INTERNACIONALES</a>
+      <a href="/products">VARIEDADES</a>
+      <a href="/products">MARCAS</a>
+      <a href="/main/contact">CONTACTO</a>
     </div>
 
     <div class="header__menu has-fade">
@@ -40,13 +40,13 @@
             Hola <%= locals.userLogged.first_name %>
           </a>
           <a href="/admin" class="button">ADMINISTRAR</a>
-          <a href="" class="button">CARRITO</a>
+          <a href="/products/productCart" class="button">CARRITO</a>
                 
 
       <% } else { %>
         <a href="/users/register" class="button">REGISTRO</a>
         <a href="/users/login" class="button">LOGIN</a>
-        <a href="" class="button">CARRITO</a>
+        <a href="/products/productCart" class="button">CARRITO</a>
       <% } %>
     </div>
   </nav>
