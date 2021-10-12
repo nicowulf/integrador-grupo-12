@@ -1,20 +1,16 @@
-const path = require('path');
-const fs = require('fs');
+const db = require('../database/models');
+const sequelize = db.sequelize;
 
 const mainController = {
     index: (req,res) => {
-        let products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/products.json')));
-        res.render(path.resolve(__dirname,'../views/main/index'), {
-            title:"Home",
-            products
-        });
-    },
-
-    contact: (req,res) => {
-        res.render(path.resolve(__dirname,'../main/contact'), {
-            title:"Contacto",
-        });
-    },
+        db.Product.findAll()
+            .then(products => {
+                res.render('main/index', {products})
+            })
+            .catch(e => {
+                console.log(e);
+            })
+        },
     
 }
 

@@ -1,32 +1,36 @@
+const db = require("../database/models");
+const sequelize = db.sequelize;
+
 const productsController = {
-    todos: (req,res) => {
-        res.render('products/products', {title : 'Todos los productos'
-    
-    
-        })
-    },
+  todos: (req, res) => {
+    db.Product.findAll()
+      .then((products) => {
+        res.render("products/products", {
+          title: "Todos los productos",
+          products,
+        });
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  },
 
-    detalle: (req,res) => {
-        let producto = req.params.id;
+  detalle: (req, res) => {
+    db.Product.findByPk(req.params.id)
+      .then((data) => {
+        res.render("products/detail", {
+          title: "Detalle de producto",
+          product: data,
+        });
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  },
 
-        res.render('products/detail', {title : 'Detalle de producto' + ' ' + producto, 
-           
-        })
-    },
-    
-    nuevo: (req,res) => {
-        res.render('products/new', {title : 'Agregar producto'
-    
-        })
-    },
+  carrito: (req, res) => {
+    res.render("products/productCart", { title: "Carrito de compras" });
+  },
+};
 
-    carrito: (req,res) => {
-        res.render('products/productCart', {title : 'Carrito de compras'
-    
-        })
-    },
-
-}
-
-module.exports = productsController
-
+module.exports = productsController;
