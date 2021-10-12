@@ -2,37 +2,56 @@
 
     <body>
         <% include ../partials/header %>
-            <div class="containerForm">
+            <div class="form-wrap">
                 <form action="/products/newProduct" method="POST" id="newProductForm">
                     <div class="form">
                         <h1>Agregar nuevo producto</h1>
                         <div class="group">
+                            <label for="">Marca</label><br>
+                            <input type="text" name='brand' id='brand'><span class="barra"></span>
+                        </div>
+                        <div class="group">
                             <label for="">Nombre del producto</label><br>
-                            <input type="text" name='prod-name' id='prod-name'><span class="barra"></span>
+                            <input type="text" name='prod_name' id='prod-name'><span class="barra"></span>
                         </div>
                         <div class="group">
                             <label for="">Descripción</label><br>
-                            <input type="tex" name='description' id='description'><span class="barra"></span>
+                            <textarea name="description" id='description' rows="5" cols="50"></textarea>
+                            <span class="barra"></span>
+                        </div>
+                        <div class="group">
+                            <label for="">Graduación alcohólica</label><br>
+                            <input type="text" name='alcohol' id='alcohol'><span class="barra"></span>
+                        </div>
+                        <div class="group">
+                            <label for="">Amargor</label><br>
+                            <input type="text" name='bitterness' id='bitterness'><span class="barra"></span>
+                        </div>
+                        <div class="group">
+                            <label for="">IBU</label><br>
+                            <input type="text" name='ibu' id='ibu'><span class="barra"></span>
                         </div>
                         <div class="group">
                             <label for="">Seleccionar imágenes</label><br>
-                            <input type="file" name='images' accept=".jpg,.png" id='images' multiple><span
+                            <input type="file" name='image' accept=".jpg,.png" id='images' multiple><span
                                 class="barra"></span>
                         </div>
                         <div class="group">
                             <label for="">Origen</label>
                             <br>
-                            <br>
-                            <select>
-                                <option>Nacionales</option>
-                                <option>Internacionalesacionales</option>
+                            <select name='origin' id='origin'>
+                                <option>Argentina</option>
+                                <option>Alemania</option>
+                                <option>Bélgica</option>
+                                <option>Holanda</option>
+                                <option>Irlanda</option>
+                                <option>México</option>
                             </select>
                         </div>
                         <div class="group">
                             <label for="">Variedades</label>
                             <br>
-                            <br>
-                            <select>
+                            <select name='styles' id='styles'>
                                 <option>IPA</option>
                                 <option>APA</option>
                                 <option>Golden</option>
@@ -46,14 +65,15 @@
                         </div>
                         <div class="group">
                             <label for="">Precio</label><br>
-                            <input type="text" name="price"><span class="barra"></span>
+                            <input type="text" name="price" id='price'><span class="barra"></span>
+                        </div>
+                        <div class="group">
+                            <label for="">Descuento</label><br>
+                            <input type="text" name="discount" id='discount'><span class="barra"></span>
                         </div>
                         <div class="buttons">
-                            <div>
+                            <div class="input-wrap">
                                 <button type="submit">Agregar producto</button>
-                            </div>
-                            <div>
-                                <button type="submit">Editar producto</button>
                             </div>
                         </div>
                     </div>

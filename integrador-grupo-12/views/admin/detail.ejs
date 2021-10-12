@@ -5,28 +5,28 @@
         <% include ../partials/header %>
             <div class="detail-container">
                 <div class="product-main">
-                    <img src="/imagenes/products/<%= myProduct.imagen%>" width='250'
+                    <img src="/images/products/<%= product.image%>" width='250'
                         height='350' alt="antares_Atlantica">
-                    <h1><%= myProduct.nombre%> X6</h1>
+                    <h1><%= product.brand%> </h1>
+                    <p><%= product.origin%></p>
                 </div>
                 <div class="product-description">
                     <div class="description-text">
-                        <p><%= myProduct.descripcion%>
+                        <p><%= product.description%>
                             <br> Cont. Neto por lata 473cm3
                         </p>
                     </div>
                     <br>
                     <div class="product-data">
                         <p class="data-title">Ficha Técnica:</p>
-                        <p><%= myProduct.origen%></p>
-                        <p>Alcohol: 5%</p>
-                        <p>IBU: 18</p>
-                        <p>Amargor: Bajo</p>
+                        <p>Graduación alcohólica: <%= product.alcohol%> %</p>
+                        <p>IBU: <%= product.ibu%></p>
+                        <p>Amargor: <%= product.bitterness%></p>
                     </div>
                     <div class="price flex flex-ai-center flex-jc-sb ">
-                        <p class="price">Pack x6 <br>$ <%= myProduct.precio%></p>
-                        <a href="#" class="button">Agregar al Carrito</a>
-                        <a href="#" class="button">Agregar al Carrito</a>
+                        <p class="price"><br>$ <%= product.price%></p>
+                        <a href="#" class="button">EDITAR</a>
+                        <a href="#" class="button">BORRAR</a>
                     </div>
                 </div>
 

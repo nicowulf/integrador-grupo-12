@@ -6,7 +6,7 @@
                 <div class="form register-form">
                     <h1>Registro</h1>
                         <form method="POST" action='/users/register' enctype="multipart/form-data">
-                            <div class="input-wrap">
+                                                        <div class="input-wrap">
                                 <input type="text" placeholder="Nombre" name="first_name" 
                                 value="<%= locals.oldData ? oldData.first_name : null %>">
                                 <% if (locals.errors && errors.first_name) { %>

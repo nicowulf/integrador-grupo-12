@@ -4,31 +4,37 @@
         <% include ../partials/header %>
             <div class="detail-container">
                 <div class="product-main">
-                    <img src="/images/productos/nacionales/antares/antares_Atlantica-169x300.png" width='250'
-                        height='350' alt="antares_Atlantica">
-                    <h1>Antares Atlantica 473cc X6</h1>
+                    <img src="/images/products/<%= product.image%>" width='250' height='350' alt="antares_Atlantica">
+                    <h1>
+                        <%= product.brand%>
+                    </h1>
+                    <p>
+                        <%= product.origin%>
+                    </p>
                 </div>
                 <div class="product-description">
                     <div class="description-text">
-                        <p>Se trata de una cerveza bien argentina, sedosa, balanceada y delicada, una cerveza fácil
-                            de tomar, rubia, liviana y refrescante, con sutiles sabores y aromas frutados,
-                            <br> Cont. Neto por lata 473cm3
+                        <p>
+                            <%= product.description%>
+                                <br> Cont. Neto por lata 473cm3
                         </p>
                     </div>
                     <br>
                     <div class="product-data">
                         <p class="data-title">Ficha Técnica:</p>
-                        <p>Alcohol: 5%</p>
-                        <p>IBU: 18</p>
-                        <p>Amargor: Bajo</p>
+                        <p>Graduación alcohólica: <%= product.alcohol%> %</p>
+                        <p>IBU: <%= product.ibu%>
+                        </p>
+                        <p>Amargor: <%= product.bitterness%>
+                        </p>
                     </div>
                     <div class="price flex flex-ai-center flex-jc-sb ">
-                        <p class="price">Pack x6 <br>$1.190</p>
-                        <a href="#" class="button">Agregar al Carrito</a>
+                        <p class="price"><br>$ <%= product.price%>
+                        </p>
+                        <a href="#" class="button">Agregar al carrito</a>
+                        
                     </div>
                 </div>
-
-            </div>
 
             <% include ../partials/footer %>
     </body>

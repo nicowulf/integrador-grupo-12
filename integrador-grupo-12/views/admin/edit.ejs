@@ -3,45 +3,131 @@
     <body>
 
         <% include ../partials/header %>
-
-        <form action="/admin/edit/<%= productEdit.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
-                <div class="form-group">
-                    <input type="text" class="form-control" name="nombre" placeholder="Nombre" required="required" value="<%= productEdit.nombre%>">
-                </div>	
-                <div class="form-group">
-                    <input type="text" class="form-control" name="descripcion" placeholder="Descripción" required="required" value="<%= productEdit.descripcion%>">
+        <div class="form-wrap">
+            <form action="/admin/edit/<%= productToEdit.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+                <div class="form">
+                    <h1>Editar producto</h1>
+                    <div class="group">
+                        <label for="">Marca</label><br>
+                        <input type="text" name='brand' id='brand' class="form-control" value="<%= productToEdit.brand%>"><span class="barra"></span>
+                    </div>
+                    <div class="group">
+                        <label for="">Nombre</label><br>
+                        <input type="text" name='prod_name' id='prod_name' class="form-control" value="<%= productToEdit.prod_name%>"><span class="barra"></span>
+                    </div>
+                    <div class="group">
+                        <label for="">Descripción</label><br>
+                        <textarea name="description" id='description' rows="5" cols="50" class="form-control" value=""><%= productToEdit.description%></textarea>></textarea><span class="barra"></span>
+                    </div>
+                    <div class="group">
+                        <label for="">Graduación alcohólica</label><br>
+                        <input type="text" name='alcohol' id='alcohol' class="form-control" value="<%= productToEdit.alcohol%>"><span class="barra"></span>
+                    </div>
+                    <div class="group">
+                        <label for="">Amargor</label><br>
+                        <input type="text" name='bitterness' id='bitterness' class="form-control" value="<%= productToEdit.bitterness%>""><span class="barra"></span>
+                    </div>
+                    <div class="group">
+                        <label for="">IBU</label><br>
+                        <input type="text" name='ibu' id='ibu' class="form-control" value="<%= productToEdit.ibu%>"><span class="barra"
+                            ></span>
+                    </div>
+                    <div class="custom-file">
+                        <figure class="group">
+                            <img  class="w-100" src="/images/products/<%= productToEdit.image%>" alt="product <%= productToEdit.brand%>">
+                        </figure>
+                        <input type="hidden"  name="image"  value="<%= productToEdit.image%>">
+                        <!--De esta forma logro conservar y que viaje la imagen anterior de esta forma evito que el usuario seleccione una imagen nuevamente, ( si no lo desea) -->
+                        <label for="">Seleccionar imágenes</label><br>
+                        <input type="file" name='image' accept=".jpg,.jpeg,.png" id='images' value="<%= productToEdit.image%>"><span class="barra"></span>
+                        <!--<input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" name="imagen" required value=""> 
+                        <label class="custom-file-label" for="inputGroupFile01">Seleccione una imagen...</label>-->
+                    </div>              
+                    <!--Aquí solicito la imagen-->
+                    <div class="group">
+                        <label for="origin">Origen</label><br>
+                        <select name="origin_id" id="origin_id" class="eleccion-opciones">
+                            <option value="<%= productToEdit.origin%>">Elegí el origen</option>
+                    
+                            <% for (let i=0; i < origin.length; i++) { %>
+                                <option <%if (locals.oldData && locals.oldData.origin) { %>
+                                    <% if (locals.oldData.origin==origin[i].origin) { %>
+                                        selected
+                                        <% } %>
+                                            <% } %>
+                                                value="<%= origin[i].id %>"><%= origin[i].id %> - <%=origin[i].origin%>
+                                </option>
+                                <% } %>
+                    
+                        </select>
+                        <%if (locals.errors && errors.origin){%>
+                            <div class="text-danger">
+                                <%=errors.origin.msg%>
+                            </div>
+                            <%}%>
+                    </div>
+                    
+                    <div class="group">
+                        <label for="style">Variedad</label><br>
+                        <select name="style_id" id="style_id" class="eleccion-opciones">
+                            <option value="<%= productToEdit.style%>">Elegí la variedad</option>
+                    
+                            <% for (let i=0; i < style.length; i++) { %>
+                                <option <%if (locals.oldData && locals.oldData.style) { %>
+                                    <% if (locals.oldData.style==style[i].style) { %>
+                                        selected
+                                        <% } %>
+                                            <% } %>
+                                                value="<%= style[i].id %>"><%= style[i].id %> - <%=style[i].style%>
+                                </option>
+                                <% } %>
+                    
+                        </select>
+                        <%if (locals.errors && errors.style){%>
+                            <div class="text-danger">
+                                <%=errors.style.msg%>
+                            </div>
+                            <%}%>
+                    </div>
+                    
+                    <div class="group">
+                        <label for="">Precio</label><br>
+                        <input type="text" name='price' id='price' class="form-control"><span class="barra"
+                            value="<%= productToEdit.price%>"></span>
+                    </div>
+                    
+                    <div class="group">
+                        <label for="style">Descuento</label><br>
+                        <select name="discount_id" id="discount_id" class="eleccion-opciones">
+                            <option value="<%= productToEdit.discount%>">Elegí el descuento</option>
+                    
+                            <% for (let i=0; i < discount.length; i++) { %>
+                                <option <%if (locals.oldData && locals.oldData.discount) { %>
+                                    <% if (locals.oldData.discount==discount[i].discount) { %>
+                                        selected
+                                        <% } %>
+                                            <% } %>
+                                                value="<%= discount[i].id %>"><%= discount[i].id %> - <%=discount[i].discount%>
+                                </option>
+                                <% } %>
+                    
+                        </select>
+                        <%if (locals.errors && errors.discount){%>
+                            <div class="text-danger">
+                                <%=errors.discount.msg%>
+                            </div>
+                            <%}%>
+                    </div>
+                    
+                    <div class="buttons">
+                        <div class="input-wrap">
+                            <button type="submit" class="btn btn btn-info">Guardar</button>
+                            <a href="/admin" class="btn btn-danger">Volver</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <input type="number" class="form-control" name="precio" placeholder="Indique el precio" required="required" value="<%= productEdit.precio%>">
-                </div>
-                <div class="form-group">
-                    <select  name="descuento" class="custom-select" id="validationCustom04" required>
-                      <option disabled value="#">Seleccione un descuento"</option>
-                      <option value="0" <%= productEdit.descuento == 0 ? "selected" : null %>
-                        >Sin descuento</option>
-                      <option value="15" <%= productEdit.descuento == 15 ? "selected" : null %>>15%</option>
-                      <option value="30" <%= productEdit.descuento == 30 ? "selected" : null %>>30%</option>
-                    </select>
-                </div>
-                <!--Aquí solicito la imagen-->
-                <div class="custom-file">
-                    <figure class="form-group">
-                        <img  class="w-100" src="/imagenes/products/<%= productEdit.imagen%>" alt="product <%= productEdit.nombre%>">
-                    </figure>
-                    <input type="hidden"  name="oldImagen"  value="<%= productEdit.imagen%>">
-                    <!--De esta forma logro conservar y que viaje la imagen anterior de esta forma evito que el usuario seleccione una imagen nuevamente, ( si no lo desea) -->
-                    <input type="file" name="imagen" >
-                    <!--<input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" name="imagen" required value=""> 
-
-                    <label class="custom-file-label" for="inputGroupFile01">Seleccione una imagen...</label>-->
-                  </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn btn-info">Actualizar</button>
-                    <a href="/admin" class="btn btn-danger">Volver</a>
-                </div>
-                
             </form>
-
+        </div>
 
         <% include ../partials/footer %>
     </body>

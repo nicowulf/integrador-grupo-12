@@ -2,7 +2,7 @@
   <div class="overlay has-fade"></div>
   <nav class="flex flex-jc-sb flex-ai-c">
     <a href="/" class="header__logo">
-      <img  alt="">
+      <img alt="">
     </a>
 
     <a href="#" id="btnHamburger" class="header__hamburger hide-for-desktop">
@@ -37,22 +37,22 @@
 
     <div class="header__button hide-for-mobile">
       <% if (locals.isLogged) { %>
-        
-        
-          <a  class="nav-link dropdown-toggle" href="/users/profile" id="dropUser" role="button" data-bs-toggle="dropdown"
-            aria-expanded="false">
-            <img src="/images/usuarios/<%= locals.userLogged.avatar %>" width="40" style="border-radius: 100%;">
-            Hola <%= locals.userLogged.first_name %>
-          </a>
-          <a href="/admin" class="button">ADMINISTRAR</a>
-          <a href="/products/productCart" class="button">CARRITO</a>
-                
 
-      <% } else { %>
-        <a href="/users/register" class="button">REGISTRO</a>
-        <a href="/users/login" class="button">LOGIN</a>
+
+        <a class="nav-link dropdown-toggle" href="/users/profile" id="dropUser" role="button" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          <img src="/images/usuarios/<%= locals.userLogged.avatar %>" width="40" style="border-radius: 100%;">
+          Hola <%= locals.userLogged.first_name %>
+        </a>
+        <a href="/admin" class="button">ADMINISTRAR</a>
         <a href="/products/productCart" class="button">CARRITO</a>
-      <% } %>
+
+
+        <% } else { %>
+          <a href="/users/register" class="button">REGISTRO</a>
+          <a href="/users/login" class="button">LOGIN</a>
+          <a href="/products/productCart" class="button">CARRITO</a>
+          <% } %>
     </div>
   </nav>
 </header>
