@@ -21,6 +21,11 @@ router.post('/login', validations, usersController.loginProcess);
 
 router.get('/profile', authMiddleware, usersController.profile);
 
+router.get("/edit/:id", authMiddleware, usersController.edit);
+router.put("/edit/:id", uploadFile.single("avatar"), usersController.update);
+
 router.get('/logout', usersController.logout);
+
+router.get("/delete/:id", usersController.destroy);
 
 module.exports = router;

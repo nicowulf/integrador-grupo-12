@@ -1,5 +1,6 @@
 const bcryptjs = require('bcryptjs');
 const { validationResult } = require('express-validator');
+const User = require("../helpers/User");
 
 const db = require("../database/models");
 
@@ -10,7 +11,6 @@ const usersController = {
     }).then(function (users) {
       return users;
     });
-        
   },
 
   findByfield: function (field, value) {
@@ -62,22 +62,19 @@ const usersController = {
       .catch((e) => {
         console.log(e);
       });
-    
   },
 
   login: (req, res) => {
     res.render("users/login", { title: "Iniciar sesión" });
   },
 
-  loginProcess: async(req, res) => {
-    const userToLogin = await db.Usuario.findOne({
+  loginProcess: async (req, res) => {
+    const userToLogin = await db.User.findOne({
       where: {
         email: req.body.email,
-      }
-      .catch((e) => {
-        console.log(e);
-      })
+      },
     });
+
     if (userToLogin) {
       let passwordOk = bcryptjs.compareSync(
         req.body.password,
@@ -113,8 +110,7 @@ const usersController = {
       },
     });
   },
-    
- 
+
   profile: (req, res) => {
     return res.render("users/profile", {
       userLogged: req.session.userLogged,
@@ -125,6 +121,54 @@ const usersController = {
     res.clearCookie("userEmail");
     req.session.destroy();
     return res.redirect("../");
+  },
+
+  edit: function (req, res) {
+    let userToEdit = db.Usuario.findByPk(req.params.id)
+      .then(() => {
+        return res.redirect("../users/profile", { userToEdit, role_id: 2 });
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  },
+  
+  update: function (req, res) {
+    db.User.update({
+
+    }, {
+      where: { id: req.params.id },
+    }).then(() => {
+      res.redirect("users/profile" + req.params.id);
+    });
+  },
+
+  update: (req, res) => {
+    const resultadoValidaciones = validationResult(req);
+    if (resultadoValidaciones.errors.length > 0) {
+      return res.render("user/edit", {
+        errors: resultadoValidaciones.mapped(),
+        oldData: req.body,
+      });
+    }
+
+    let userToEdit = {
+      first_name: req.body.first_name,
+      last_name: req.body.last_name,
+      email: req.body.email,
+      password: req.body.password,
+      confirm_password: req.body.confirm_password,
+      avatar: req.file.filename,
+      password: bcryptjs.hashSync(req.body.password, 10),
+      confirm_password: bcryptjs.hashSync(req.body.confirm_password, 10),
+      avatar: req.file.filename,
+    };
+    
+    db.Usuario.update(userToEdit, { where: { id: req.params.id } })
+      .then(() => res.redirect("../user/profile/" + req.params.id))
+      .catch((e) => {
+        console.log(e);
+      });
   },
 
   destroy: function (req, res) {

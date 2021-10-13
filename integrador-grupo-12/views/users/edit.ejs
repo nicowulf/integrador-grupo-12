@@ -1,0 +1,54 @@
+<% include ../partials/head %>
+
+    <body>
+        <% include ../partials/header %>
+
+            <div class="form-wrap">
+                <div class="form register-form">
+                    <h1>Actualiza tus datos</h1>
+                    <form action="/admin/edit/<%= userToEdit.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+                        <div class="input-wrap">
+                            <input type="text" placeholder="Nombre" name="first_name"
+                                value="<%= userToEdit.first_name %>">
+                            <% if (locals.errors && errors.first_name) { %>
+                                <div class='text-danger'>
+                                    <%= errors.first_name.msg %>
+                                </div>
+                                <% } %>
+                        </div>
+                        <div class="input-wrap">
+                            <input type="text" placeholder="Apellido" name="last_name"
+                                value="<%= userToEdit.last_name %>">
+                            <% if (locals.errors && errors.last_name) { %>
+                                <div class='text-danger'>
+                                    <%= errors.last_name.msg %>
+                                </div>
+                                <% } %>
+                        </div>
+                        <div class="input-wrap">
+                            <input type="email" placeholder="E-mail" name="email"
+                                value="<%= userToEdit.email %>">
+                            <% if (locals.errors && errors.email) { %>
+                                <div class='text-danger'>
+                                    <%= errors.email.msg %>
+                                </div>
+                                <% } %>
+                        </div>
+                        <div class="input-wrap">
+                            <input type="file" placeholder="Imagen de perfil" name="avatar" value="<%= userToEdit.avatar %>">
+                            <% if (locals.errors && errors.avatar) { %>
+                                <div class='text-danger'>
+                                    <%= errors.avatar.msg %>
+                                </div>
+                                <% } %>
+                        </div>
+                        <div class="input-wrap">
+                            <input type="checkbox" required>
+                            <p>Acepto los Términos y Condiciones y la Política de Privacidad.</p>
+                        </div>
+                        <div class="input-wrap">
+                            <button type="submit">Registrarse</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
