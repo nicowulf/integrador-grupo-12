@@ -53,6 +53,7 @@ const usersController = {
       password: bcryptjs.hashSync(req.body.password, 10),
       confirm_password: bcryptjs.hashSync(req.body.confirm_password, 10),
       avatar: req.file.filename,
+      role_id: 2,
     };
 
     db.User.create(userToCreate)
@@ -68,49 +69,56 @@ const usersController = {
     res.render("users/login", { title: "Iniciar sesión" });
   },
 
-  loginProcess: async (req, res) => {
-    const userToLogin = await db.User.findOne({
+  loginProcess:  (req, res) => {
+    let userToLogin = db.User.findOne({
       where: {
         email: req.body.email,
+        
       },
-    });
 
-    if (userToLogin) {
-      let passwordOk = bcryptjs.compareSync(
-        req.body.password,
-        userToLogin.password
-      );
+    })
+    .then((userToLogin) => {
+        if (userToLogin) {
+        let passwordOk = bcryptjs.compareSync(
+          req.body.password,
+          userToLogin.password
+        );
 
-      if (passwordOk) {
-        delete userToLogin.password;
-        req.session.userLogged = userToLogin;
+          if (passwordOk) {
+            delete userToLogin.password;
+            req.session.userLogged = userToLogin;
 
-        res.cookie("userEmail", req.body.email, { maxAge: 1000 * 60 * 60 });
+            res.cookie("userEmail", req.body.email, { maxAge: 1000 * 60 * 60 });
 
-        return res.redirect("../users/profile");
-      }
+            return res.redirect("../users/profile");
+          }else{
+            return res.render("users/login", {
+              errors: {
+                email: {
+                  msg: "Contraseña o usuario incorrecto",
+                },
+                password: {
+                  msg: "Contraseña o usuario incorrecto",
+                },
+              },
+            });
+          }
 
-      return res.render("users/login", {
+      };
+
+      return res.render("user/login", {
         errors: {
           email: {
-            msg: "Contraseña o usuario incorrecto",
-          },
-          password: {
-            msg: "Contraseña o usuario incorrecto",
+            msg: "Usuario no registrado",
           },
         },
       });
-    }
-
-    return res.render("user/login", {
-      errors: {
-        email: {
-          msg: "Usuario no registrado",
-        },
-      },
-    });
-  },
-
+    })
+      .catch((e) => {
+          console.log(e);
+        })
+  },  
+  
   profile: (req, res) => {
     return res.render("users/profile", {
       userLogged: req.session.userLogged,
