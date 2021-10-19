@@ -53,7 +53,7 @@ const usersController = {
       password: bcryptjs.hashSync(req.body.password, 10),
       confirm_password: bcryptjs.hashSync(req.body.confirm_password, 10),
       avatar: req.file.filename,
-      role_id: 2,
+      role_id: 1,
     };
 
     db.User.create(userToCreate)
@@ -75,7 +75,7 @@ const usersController = {
         email: req.body.email,
         
       },
-
+    
     })
     .then((userToLogin) => {
         if (userToLogin) {
@@ -141,16 +141,6 @@ const usersController = {
       });
   },
   
-  update: function (req, res) {
-    db.User.update({
-
-    }, {
-      where: { id: req.params.id },
-    }).then(() => {
-      res.redirect("users/profile" + req.params.id);
-    });
-  },
-
   update: (req, res) => {
     const resultadoValidaciones = validationResult(req);
     if (resultadoValidaciones.errors.length > 0) {
