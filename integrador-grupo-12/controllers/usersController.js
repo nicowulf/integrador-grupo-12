@@ -47,9 +47,6 @@ const usersController = {
       first_name: req.body.first_name,
       last_name: req.body.last_name,
       email: req.body.email,
-      password: req.body.password,
-      confirm_password: req.body.confirm_password,
-      avatar: req.file.filename,
       password: bcryptjs.hashSync(req.body.password, 10),
       confirm_password: bcryptjs.hashSync(req.body.confirm_password, 10),
       avatar: req.file.filename,
@@ -58,7 +55,7 @@ const usersController = {
 
     db.User.create(userToCreate)
       .then(() => {
-        return res.redirect("../users/profile");
+        return res.redirect("../users/profile/:id");
       })
       .catch((e) => {
         console.log(e);
@@ -69,29 +66,28 @@ const usersController = {
     res.render("users/login", { title: "Iniciar sesión" });
   },
 
-  loginProcess:  (req, res) => {
+  loginProcess: (req, res) => {
     let userToLogin = db.User.findOne({
       where: {
         email: req.body.email,
-        
       },
-    
     })
-    .then((userToLogin) => {
+      .then((userToLogin) => {
         if (userToLogin) {
-        let passwordOk = bcryptjs.compareSync(
-          req.body.password,
-          userToLogin.password
-        );
+          let passwordOk = bcryptjs.compareSync(
+            req.body.password,
+            userToLogin.password
+          );
 
           if (passwordOk) {
             delete userToLogin.password;
             req.session.userLogged = userToLogin;
-
+            let id = userToLogin.id;
+            
             res.cookie("userEmail", req.body.email, { maxAge: 1000 * 60 * 60 });
 
-            return res.redirect("../users/profile");
-          }else{
+            return res.redirect("../users/profile/" + id);
+          } else {
             return res.render("users/login", {
               errors: {
                 email: {
@@ -103,23 +99,23 @@ const usersController = {
               },
             });
           }
+        }
 
-      };
-
-      return res.render("user/login", {
-        errors: {
-          email: {
-            msg: "Usuario no registrado",
+        return res.render("user/login", {
+          errors: {
+            email: {
+              msg: "Usuario no registrado",
+            },
           },
-        },
-      });
-    })
+        });
+      })
       .catch((e) => {
-          console.log(e);
-        })
-  },  
-  
+        console.log(e);
+      });
+  },
+
   profile: (req, res) => {
+    
     return res.render("users/profile", {
       userLogged: req.session.userLogged,
     });
@@ -132,43 +128,45 @@ const usersController = {
   },
 
   edit: function (req, res) {
-    let userToEdit = db.Usuario.findByPk(req.params.id)
-      .then(() => {
-        return res.redirect("../users/profile", { userToEdit, role_id: 2 });
+    let id = req.params.id
+    let userToEdit = db.User.findByPk(id)
+      .then((userToEdit) => {
+        return res.render("users/edit", {
+          userToEdit,
+          role_id: 1,
+        });
       })
       .catch((e) => {
         console.log(e);
       });
   },
-  
+
   update: (req, res) => {
+    
     const resultadoValidaciones = validationResult(req);
     if (resultadoValidaciones.errors.length > 0) {
-      return res.render("user/edit", {
+      return res.render("users/edit", {
         errors: resultadoValidaciones.mapped(),
         oldData: req.body,
       });
+    } else{
+      let userToEdit = {
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        email: req.body.email,
+        avatar: req.file ? req.file.filename : req.body.oldImagen,
+      };
+
+      db.User.update(userToEdit, { where: { id: req.params.id } })
+        .then(() => res.redirect("../profile/" + req.params.id))
+        .catch((e) => {
+          console.log(e);
+        });
     }
 
-    let userToEdit = {
-      first_name: req.body.first_name,
-      last_name: req.body.last_name,
-      email: req.body.email,
-      password: req.body.password,
-      confirm_password: req.body.confirm_password,
-      avatar: req.file.filename,
-      password: bcryptjs.hashSync(req.body.password, 10),
-      confirm_password: bcryptjs.hashSync(req.body.confirm_password, 10),
-      avatar: req.file.filename,
-    };
     
-    db.Usuario.update(userToEdit, { where: { id: req.params.id } })
-      .then(() => res.redirect("../user/profile/" + req.params.id))
-      .catch((e) => {
-        console.log(e);
-      });
   },
-
+  
   destroy: function (req, res) {
     db.User.destroy({
       where: {

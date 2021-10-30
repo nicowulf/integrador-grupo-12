@@ -4,9 +4,9 @@
         <% include ../partials/header %>
 
             <div class="form-wrap">
-                <div class="form register-form">
+                <form action="/users/edit/<%= userToEdit.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+                <div class="form">
                     <h1>Actualiza tus datos</h1>
-                    <form action="/admin/edit/<%= userToEdit.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
                         <div class="input-wrap">
                             <input type="text" placeholder="Nombre" name="first_name"
                                 value="<%= userToEdit.first_name %>">
@@ -42,13 +42,11 @@
                                 </div>
                                 <% } %>
                         </div>
+                        
                         <div class="input-wrap">
-                            <input type="checkbox" required>
-                            <p>Acepto los Términos y Condiciones y la Política de Privacidad.</p>
-                        </div>
-                        <div class="input-wrap">
-                            <button type="submit">Registrarse</button>
+                            <button type="submit">ACTUALIZAR</button>
                         </div>
                     </form>
                 </div>
             </div>
+    </body>

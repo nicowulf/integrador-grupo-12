@@ -4,6 +4,7 @@ const { validationResult } = require("express-validator");
 
 const db = require('../database/models');
 const sequelize = db.sequelize;
+const Op = db.Sequelize.Op;
 
 const adminController = {
   index: (req, res) => {
@@ -78,11 +79,9 @@ const adminController = {
       })
 
         .then(() => {
-          res.redirect("admin");
+          res.redirect("../admin");
         })
-        .catch((e) => {
-          console.log(e);
-        });
+        .catch(error => res.send(error))
     }
   },
 
@@ -93,9 +92,7 @@ const adminController = {
       .then((data) => {
         res.render("admin/detail", { product: data });
       })
-      .catch((e) => {
-        console.log(e);
-      });
+      .catch(error => res.send(error))
   },
 
   edit: function (req, res) {
@@ -109,10 +106,9 @@ const adminController = {
       .then(([productToEdit, style, origin, discount]) => {
         res.render("admin/edit", { productToEdit, style, origin, discount });
       })
-      .catch((e) => {
-        console.log(e);
-      });
+      .catch(error => res.send(error))
   },
+
   update: function (req, res) {
     
     db.Product.update(
@@ -123,7 +119,7 @@ const adminController = {
         alcohol: req.body.alcohol,
         bitterness: req.body.bitterness,
         ibu: req.body.ibu,
-        image: req.file.filename,
+        image: req.file ? req.file.filename : req.body.oldImagen,
         origin_id: parseInt(req.body.origin_id),
         style_id: parseInt(req.body.style_id),
         price: req.body.price,
@@ -135,12 +131,11 @@ const adminController = {
       }
     )
       .then(() => {
-        res.render("/admin/admin");
+        res.redirect("../");
       })
-      .catch((e) => {
-        console.log(e);
-      });
+      .catch(error => res.send(error))
   },
+
   destroy: function (req, res) {
     db.Product.destroy({
       where: { id: req.params.id },
@@ -148,10 +143,30 @@ const adminController = {
       .then(() => {
         res.redirect("admin");
       })
-      .catch((e) => {
-        console.log(e);
-      });
+      .catch(error => res.send(error))
   },
+
+  search: ( req, res) =>{
+        db.Product.findAll({
+          include: [
+            {
+              association: "style",
+              association: "origin",
+              association: "discount",
+            },
+          ],
+          where: {
+            name: { [Op.like]: `%${req.query.search}%` },
+          },
+        })
+          .then((resultado) => {
+            res.render(
+              path.resolve(__dirname, "..", "views", "admin", "administrar"),
+              { productos: resultado }
+            );
+          })
+          .catch((error) => res.send(error));
+    }
 };
   
 module.exports = adminController;

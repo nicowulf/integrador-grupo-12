@@ -39,10 +39,10 @@
                       <% if (products[i].prod_name) { %>
                         <%= products[i].prod_name%>
                           <% } else {%>
-                        "Sin nombre"
+                        
                         <% } %>
                     </td>  
-                    <td><%= products[i].style_id%></td>
+                    <td><%= products[i].style%></td>
                     <td><a href="/admin/detail/<%= products[i].id%>">Ver</a></td>
                     <td><a href="/admin/edit/<%= products[i].id%>">Editar</a></td>
                     <td><a href="/admin/delete/<%= products[i].id%>">Borrar</a></td>
