@@ -9,9 +9,17 @@
             <form action="/admin/create" method="POST" enctype="multipart/form-data">
                 <div class="form">
                     <h1>Agregar nuevo producto</h1>
+                    <div class = "errors">
+                        <ul></ul>
+                    </div>
                     <div class="group">
                         <label for="">Marca</label><br>
-                        <input type="text" name='brand' id='brand'><span class="barra" value=""></span>  
+                        <input type="text" name='brand' id='brand'><span class="barra" value=""></span>
+                        <% if (locals.errors && errors.brand) { %>
+                            <div class='text-danger'>
+                                <%= errors.brand.msg %>
+                            </div>
+                        <% } %>  
                     </div>
                     <div class="group">
                         <label for="">Nombre del producto</label><br>
@@ -21,6 +29,11 @@
                         <label for="">Descripción</label><br>
                         <textarea name="description" id='description' rows="5" cols="50"></textarea>
                         <span class="barra"></span>
+                        <% if (locals.errors && errors.description) { %>
+                            <div class='text-danger'>
+                                <%= errors.description.msg %>
+                            </div>
+                        <% } %> 
                     </div>
                     <div class="group">
                         <label for="">Graduación alcohólica</label><br>
@@ -36,7 +49,12 @@
                     </div>
                     <div class="group">
                         <label for="">Seleccionar imágenes</label><br>
-                        <input type="file" name='image' accept=".jpg,.jpeg,.png" id='images'><span class="barra"></span>
+                        <input type="file" name='image' accept=".jpg,.jpeg,.png" id='image'><span class="barra"></span>
+                        <%if (locals.errors && errors.image){%>
+                            <div class="text-danger">
+                                <%=errors.image.msg%>
+                            </div>
+                        <%}%>
                     </div>
                     <div class="group">
                         <label for="origin">Origen</label><br>
@@ -54,9 +72,9 @@
                                     <% } %>
                         
                             </select>
-                                <%if (locals.errors && errors.origin){%>
+                                <%if (locals.errors && errors.origin_id){%>
                                 <div class="text-danger">
-                                    <%=errors.origin.msg%>
+                                    <%=errors.origin_id.msg%>
                                 </div>
                                 <%}%>
                     </div>
@@ -77,16 +95,21 @@
                                 <% } %>
                     
                         </select>
-                        <%if (locals.errors && errors.style){%>
-                            <div class="text-danger">
-                                <%=errors.style.msg%>
-                            </div>
+                            <%if (locals.errors && errors.style_id){%>
+                                <div class="text-danger">
+                                    <%=errors.style_id.msg%>
+                                </div>
                             <%}%>
                     </div>
 
                     <div class="group">
                         <label for="">Precio</label><br>
                         <input type="text" name="price" id='price'><span class="barra"></span>
+                        <%if (locals.errors && errors.price){%>
+                            <div class="text-danger">
+                                <%=errors.price.msg%>
+                            </div>
+                        <%}%>
                     </div>
                     
                     <div class="group">
@@ -105,18 +128,12 @@
                                     <% } %>
                                     
                             </select>
-                                <%if (locals.errors && errors.discount){%>
-                                    <div class="text-danger">
-                                        <%=errors.discount.msg%>
-                                    </div>
-                                <%}%>
+                            <%if (locals.errors && errors.discount_id){%>
+                                <div class="text-danger">
+                                    <%=errors.discount_id.msg%>
+                                </div>
+                            <%}%>
                     </div>
-                        <!--Aquí solicito la imagen-->
-                        <!--<div class="custom-file">
-                            <input type="file" name="imagen">
-                            <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" name="imagen" required value=""> 
-
-                    <label class="custom-file-label" for="inputGroupFile01">Seleccione una imagen...</label>-->
                 </div>
                 <div class="buttons">
                     <div class="input-wrap">
@@ -126,7 +143,8 @@
                 </div>
             </form>
         </div>  
-            
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/validatorjs/2.0.0/validator.min.js"></script>
+        <script src='/javascript/validationProducts.js'></script>   
         <% include ../partials/footer %>
     </body>
 

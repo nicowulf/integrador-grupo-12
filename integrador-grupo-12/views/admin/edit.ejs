@@ -7,9 +7,17 @@
             <form action="/admin/edit/<%= productToEdit.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
                 <div class="form">
                     <h1>Editar producto</h1>
+                    <div class = "errors">
+                                <ul></ul>
+                            </div>
                     <div class="group">
                         <label for="">Marca</label><br>
                         <input type="text" name='brand' id='brand' class="form-control" value="<%= productToEdit.brand%>"><span class="barra"></span>
+                        <% if (locals.errors && errors.brand) { %>
+                            <div class='text-danger'>
+                                <%= errors.brand.msg %>
+                            </div>
+                        <% } %>  
                     </div>
                     <div class="group">
                         <label for="">Nombre</label><br>
@@ -18,6 +26,11 @@
                     <div class="group">
                         <label for="">Descripción</label><br>
                         <textarea name="description" id='description' rows="5" cols="50" class="form-control" value=""><%= productToEdit.description%></textarea>></textarea><span class="barra"></span>
+                        <% if (locals.errors && errors.description) { %>
+                            <div class='text-danger'>
+                                <%= errors.description.msg %>
+                            </div>
+                        <% } %> 
                     </div>
                     <div class="group">
                         <label for="">Graduación alcohólica</label><br>
@@ -25,7 +38,7 @@
                     </div>
                     <div class="group">
                         <label for="">Amargor</label><br>
-                        <input type="text" name='bitterness' id='bitterness' class="form-control" value="<%= productToEdit.bitterness%>""><span class="barra"></span>
+                        <input type="text" name='bitterness' id='bitterness' class="form-control" value="<%= productToEdit.bitterness%>"><span class="barra"></span>
                     </div>
                     <div class="group">
                         <label for="">IBU</label><br>
@@ -42,12 +55,17 @@
                         <input type="file" name='image' accept=".jpg,.jpeg,.png" id='images' value="<%= productToEdit.image%>"><span class="barra"></span>
                         <!--<input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" name="imagen" required value=""> 
                         <label class="custom-file-label" for="inputGroupFile01">Seleccione una imagen...</label>-->
+                        <%if (locals.errors && errors.image){%>
+                            <div class="text-danger">
+                                <%=errors.image.msg%>
+                            </div>
+                        <%}%>
                     </div>              
                     <!--Aquí solicito la imagen-->
                     <div class="group">
                         <label for="origin">Origen</label><br>
                         <select name="origin_id" id="origin_id" class="eleccion-opciones">
-                            <option value="<%= productToEdit.origin%>">Elegí el origen</option>
+                            <option value="<%= productToEdit.origin%>" selected>Elegí el origen</option>
                     
                             <% for (let i=0; i < origin.length; i++) { %>
                                 <option <%if (locals.oldData && locals.oldData.origin) { %>
@@ -55,14 +73,14 @@
                                         selected
                                         <% } %>
                                             <% } %>
-                                                value="<%= origin[i].id %>"><%= origin[i].id %> - <%=origin[i].origin%>
+                                        value="<%= origin[i].id %>"><%= origin[i].id %> - <%=origin[i].origin%>
                                 </option>
                                 <% } %>
                     
                         </select>
-                        <%if (locals.errors && errors.origin){%>
+                        <%if (locals.errors && errors.origin_id){%>
                             <div class="text-danger">
-                                <%=errors.origin.msg%>
+                                <%=errors.origin_id.msg%>
                             </div>
                             <%}%>
                     </div>
@@ -70,7 +88,7 @@
                     <div class="group">
                         <label for="style">Variedad</label><br>
                         <select name="style_id" id="style_id" class="eleccion-opciones">
-                            <option value="<%= productToEdit.style%>">Elegí la variedad</option>
+                            <option value="<%= productToEdit.style%>" >Elegí la variedad</option>
                     
                             <% for (let i=0; i < style.length; i++) { %>
                                 <option <%if (locals.oldData && locals.oldData.style) { %>
@@ -83,23 +101,27 @@
                                 <% } %>
                     
                         </select>
-                        <%if (locals.errors && errors.style){%>
+                        <%if (locals.errors && errors.style_id){%>
                             <div class="text-danger">
-                                <%=errors.style.msg%>
+                                <%=errors.style_id.msg%>
                             </div>
                             <%}%>
                     </div>
                     
                     <div class="group">
                         <label for="">Precio</label><br>
-                        <input type="text" name='price' id='price' class="form-control"><span class="barra"
-                            value="<%= productToEdit.price%>"></span>
+                        <input type="text" name='price' id='price' class="form-control" value="<%= productToEdit.price%>"><span class="barra"></span>
+                        <%if (locals.errors && errors.price){%>
+                            <div class="text-danger">
+                                <%=errors.price.msg%>
+                            </div>
+                        <%}%>
                     </div>
                     
                     <div class="group">
                         <label for="style">Descuento</label><br>
                         <select name="discount_id" id="discount_id" class="eleccion-opciones">
-                            <option value="<%= productToEdit.discount%>">Elegí el descuento</option>
+                            <option value="<%= productToEdit.discount%>" selected>Elegí el descuento</option>
                     
                             <% for (let i=0; i < discount.length; i++) { %>
                                 <option <%if (locals.oldData && locals.oldData.discount) { %>
@@ -112,9 +134,9 @@
                                 <% } %>
                     
                         </select>
-                        <%if (locals.errors && errors.discount){%>
+                        <%if (locals.errors && errors.discount_id){%>
                             <div class="text-danger">
-                                <%=errors.discount.msg%>
+                                <%=errors.discount_id.msg%>
                             </div>
                             <%}%>
                     </div>
@@ -128,7 +150,8 @@
                 </div>
             </form>
         </div>
-
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/validatorjs/2.0.0/validator.min.js"></script>
+        <script src='/javascript/validationProducts.js'></script>
         <% include ../partials/footer %>
     </body>
 

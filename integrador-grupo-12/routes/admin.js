@@ -15,7 +15,7 @@ var storage = multer.diskStorage({
     }
   })
    
-  const upload = multer({ storage })
+const upload = multer({ storage })
 
 router.get('/', adminController.index);
 router.get('/create', adminController.create);

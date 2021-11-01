@@ -50,7 +50,7 @@ const usersController = {
       password: bcryptjs.hashSync(req.body.password, 10),
       confirm_password: bcryptjs.hashSync(req.body.confirm_password, 10),
       avatar: req.file.filename,
-      role_id: 1,
+      role_id: 2,
     };
 
     db.User.create(userToCreate)
@@ -101,7 +101,7 @@ const usersController = {
           }
         }
 
-        return res.render("user/login", {
+        return res.render("users/login", {
           errors: {
             email: {
               msg: "Usuario no registrado",

@@ -6,8 +6,11 @@
                 <div class="form register-form">
                     <h1>Registro</h1>
                         <form method="POST" action='/users/register' enctype="multipart/form-data">
-                                                        <div class="input-wrap">
-                                <input type="text" placeholder="Nombre" name="first_name" 
+                            <div class = "errors">
+                                <ul></ul>
+                            </div> 
+                            <div class="input-wrap">
+                                <input type="text" placeholder="Nombre" name="first_name" id="first_name" 
                                 value="<%= locals.oldData ? oldData.first_name : null %>">
                                 <% if (locals.errors && errors.first_name) { %>
                                     <div class='text-danger'>
@@ -16,7 +19,7 @@
                                     <% } %>
                             </div>
                             <div class="input-wrap">
-                                <input type="text" placeholder="Apellido" name="last_name"
+                                <input type="text" placeholder="Apellido" name="last_name" id="last_name"
                                 value="<%= locals.oldData ? oldData.last_name : null %>">
                                 <% if (locals.errors && errors.last_name) { %>
                                     <div class='text-danger'>
@@ -25,7 +28,7 @@
                                     <% } %>
                             </div>
                             <div class="input-wrap">
-                                <input type="email" placeholder="E-mail" name="email"
+                                <input type="text" placeholder="E-mail" name="email" id="email"
                                 value="<%= locals.oldData ? oldData.email : null %>">
                                 <% if (locals.errors && errors.email) { %>
                                     <div class='text-danger'>
@@ -34,7 +37,7 @@
                                     <% } %>
                             </div>
                             <div class="input-wrap">
-                                <input type="password" placeholder="Contraseña" name="password">
+                                <input type="password" placeholder="Contraseña" name="password" id="password">
                                     <% if (locals.errors && errors.password) { %>
                                     <div class='text-danger'>
                                         <%= errors.password.msg %>
@@ -42,7 +45,7 @@
                                     <% } %>
                             </div>
                             <div class="input-wrap">
-                                <input type="password" placeholder="Confirmar contraseña" name="confirm_password">
+                                <input type="password" placeholder="Confirmar contraseña" name="confirm_password" id="confirm_password">
                                 <% if (locals.errors && errors.confirm_password) { %>
                                     <div class='text-danger'>
                                         <%= errors.confirm_password.msg %>
@@ -50,7 +53,7 @@
                                 <% } %>
                             </div>
                             <div class="input-wrap">
-                                <input type="file" placeholder="Imagen de perfil" name="avatar">
+                                <input type="file" placeholder="Imagen de perfil" name="avatar" id="avatar">
                                 <% if (locals.errors && errors.avatar) { %>
                                     <div class='text-danger'>
                                         <%= errors.avatar.msg %>
@@ -58,7 +61,7 @@
                                     <% } %>
                             </div>
                             <div class="input-wrap">
-                                <input type="checkbox" required>
+                                <input type="checkbox">
                                 <p>Acepto los Términos y Condiciones y la Política de Privacidad.</p>
                             </div>
                             <div class="input-wrap">
@@ -67,8 +70,10 @@
                         </form>
                 </div>
             </div>
-
+        
         <% include ../partials/footer %>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/validatorjs/2.0.0/validator.min.js"></script>
+        <script src='/javascript/validationRegister.js'></script>
     </body>
 
     </html>

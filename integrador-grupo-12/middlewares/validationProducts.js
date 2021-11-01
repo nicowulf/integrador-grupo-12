@@ -1,5 +1,6 @@
 const path = require("path");
 const { body } = require("express-validator");
+const db = require("../database/models");
 
 module.exports = [
   body("brand")
@@ -17,9 +18,10 @@ module.exports = [
   body("origin_id").notEmpty().withMessage("Debes elegir un Origen"),
   body("style_id").notEmpty().withMessage("Debes elegir una Variedad"),
   body("price").notEmpty().withMessage("Debes colocar el precio"),
+  body("discount_id").notEmpty().withMessage("Debes elegir un descuento"),
   body("image").custom((value, { req }) => {
     let file = req.file;
-    let acceptedExtensions = [".jpg", ".png", ".gif"];
+    let acceptedExtensions = [".jpg", ".jpeg", ".png", ".gif"];
 
     if (!file) {
       throw new Error("Tienes que subir una imagen");

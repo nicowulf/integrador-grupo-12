@@ -6,9 +6,12 @@
             <div class="form-wrap">
                 <div class="form login-form">
                     <h1>iniciar sesion</h1>
-                    <form method="POST" action='/users/login'>
+                    <form method="POST" action='/users/login' class="login-form">
+                        <div class = "errors">
+                                <ul></ul>
+                            </div>
                         <div class="input-wrap">
-                            <input type="email" placeholder="E-mail" name="email" >
+                            <input type="text" placeholder="E-mail" name="email" id="email">
                             <% if (locals.errors && errors.email) { %>
                                 <div class='text-danger'>
                                     <%= errors.email.msg %>
@@ -16,7 +19,7 @@
                             <% } %>
                         </div>
                         <div class="input-wrap">
-                            <input type="password" placeholder="Contraseña" name="password">
+                            <input type="password" placeholder="Contraseña" name="password" id="password">
                         </div>
                         <div class="input-wrap login">
                             <button type="submit">Iniciar Sesion</button>
@@ -34,7 +37,8 @@
                     </form>
                 </div>
             </div>
-
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/validatorjs/2.0.0/validator.min.js"></script>
+            <script src='/javascript/validationLogin.js'></script>
             <% include ../partials/footer %>
     </body>
 
