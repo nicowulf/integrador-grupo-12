@@ -5,27 +5,33 @@
             <div class="container-shop">
                 <h3>Productos</h3>
                 <section class="container-products">
-                    <div class="product">
-                        <a href="products/productDetail/<%= product.id %>"><img
-                                src="../images/products/<%= product.image %>" width='90'
-                                height='120' alt="antares_Atlantica" class="product-img">
-                        </a>
-                        <div class="main-article">
-                            <h4 class="brandName"><%= product.brand %> 
-                                <% if (product.name) { %>
-                                    <%= product.name %> 
-                                <% } %></h4>
-                            <span class="price"><%= product.price %></span>
-                            <span class="discount">
-                                <% if (product.discount) { %>
-                                    <%= product.dicount %>
-                                <% } %>
-                            </span>
+                    <article class="container-products">
+            
+            <% for( let i=0; i < products.length; i++){ %>
+              <div class="product">
+                <a href="products/productDetail/<%= products[i].id%>:"><img src="/images/products/<%= products[i].image%>"
+                    width='90' height='120' alt="<%= products[i].prod_name%>" class="product-img">
+                </a>
+                <div class="main-article">
+                  <h4 class="brand">
+                    <%= products[i].brand%>
+                  </h4>
+                  <h4 class="dtyle">
+                    <%= products[i].style%>
+                  </h4>
+                  <h4 class="prod_name">
+                    <% if (products[i].prod_name) { %>
+                      <%= products[i].prod_name%>
+                        <% } %>
+                  </h4>
+                  <span class="price">$ <%= products[i].price%></span>
+                </div>
+                <a href="#"><i class="cart-icon fas fa-cart-plus"></i></a>
+              </div>
+            
+              <% } %>
 
-                        </div>
-                        <a href="#"><i class="cart-icon fas fa-cart-plus"></i></a>
-                    </div>
-                    
+          </article>
                 </section>
             </div>
             <% include ../partials/footer %>

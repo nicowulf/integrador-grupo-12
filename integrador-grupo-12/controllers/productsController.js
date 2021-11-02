@@ -2,7 +2,7 @@ const db = require("../database/models");
 const sequelize = db.sequelize;
 
 const productsController = {
-  todos: (req, res) => {
+  all: (req, res) => {
     db.Product.findAll()
       .then((products) => {
         res.render("products/products", {
@@ -15,7 +15,15 @@ const productsController = {
       });
   },
 
-  detalle: (req, res) => {
+  national: (req, res) => {
+    db.Product.findAll();
+  },
+
+  international: (req, res) => {
+    db.Product.findAll();
+  },
+
+  detail: (req, res) => {
     db.Product.findByPk(req.params.id)
       .then((data) => {
         res.render("products/detail", {
@@ -28,7 +36,7 @@ const productsController = {
       });
   },
 
-  carrito: (req, res) => {
+  cart: (req, res) => {
     res.render("products/productCart", { title: "Carrito de compras" });
   },
 };
