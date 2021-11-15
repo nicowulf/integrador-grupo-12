@@ -14,16 +14,16 @@ function CategoriesInDb() {
     
     const getStyles = async () => {
       let results = await axios.get("http://localhost:3000/api/products");
-      let newArr = results.data.data.products;
-      let styles = newArr.map( prod => {
-        return prod.style;
-      });
-      let filterStyles = styles.filter((style, position, styles) => {
-        return position == styles.indexOf(style);
-      });
+      let styles = results.data.meta.countByCategory;
+      // let styles = newArr.map( prod => {
+      //   return prod.style;
+      // });
+      // let filterStyles = styles.filter((style, position, styles) => {
+      //   return position == styles.indexOf(style);
+      // });
         
       
-      setStylesInDB(filterStyles);
+      setStylesInDB(styles);
       
     };
 
@@ -45,7 +45,7 @@ function CategoriesInDb() {
         <div className="card-body">
           <div className="row">
             <div className="card-body">
-              {stylesInDB.map((style, i) => {
+              {Object.entries(stylesInDB).map((style, i) => {
                 return <StylesBox data={style} key={i} />;
               })}
             </div>
