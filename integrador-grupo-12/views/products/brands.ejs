@@ -2,11 +2,11 @@
 
     <body>
         <% include ../partials/header %>
-            <div class="container-styles">
+            <div class="container-brands">
                 <h3>Marcas</h3>                          
                 <% for( let i=0; i < filterBrands.length; i++){ %>
                     <ul>
-                        <a href="#"><li class="style">
+                        <a href="#" class="brnd-link"><li class="brand">
                             <%= filterBrands[i] %>
                         </li></a>
                     </ul>        

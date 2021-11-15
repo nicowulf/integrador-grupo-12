@@ -1,0 +1,17 @@
+.container-brands {
+    background-color: #242424;
+}
+
+.brand {
+    text-decoration: none;
+    list-style: none;
+    color: white;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0
+}
+
+.brand-link {
+    text-decoration: none;
+
+}
