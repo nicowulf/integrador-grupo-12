@@ -1,0 +1,34 @@
+.profile-container {
+    padding: 25px;
+    margin-top: 40px;
+    background-color: #3C3C3C;
+}
+
+.first_name {
+    color:white
+}
+
+.name {
+    color: white;
+    font-weight: 500;
+}
+
+.alert-success {
+    color: white;
+    font-size: 18px;
+    margin-bottom:10px;
+    font-weight: 500;
+}
+
+a {
+    margin: 10px;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+@media (max-width: 700px) {
+    .row{
+        justify-content: center;
+        text-align: center;
+    }
+}

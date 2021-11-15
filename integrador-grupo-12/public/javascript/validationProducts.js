@@ -60,8 +60,7 @@ window.addEventListener("load", function () {
         ulErrors.innerHTML += `<li>${error}</li>`;
       }
     } else {
-      alert("Validación exitosa");
-      form.submit();
+        form.submit();
     }
   });
 });

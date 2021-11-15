@@ -4,12 +4,18 @@ const path = require('path');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const methodOverride = require('method-override')
+const methodOverride = require('method-override');
+const cors = require('cors');
 
+//Router
 const indexRouter = require('./routes/')
 const productsRouter = require('./routes/products')
 const usersRouter = require('./routes/users')
 const adminRouter = require('./routes/admin')
+
+//RouterAPI
+const productsAPIRouter = require("./routes/api/products");
+const usersAPIRouter = require("./routes/api/users");
 
 const app = express();
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
@@ -33,12 +39,17 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'))
 
+app.use(cors());
 
 // Router
 app.use('/', indexRouter);
 app.use('/products', productsRouter);
 app.use('/users', usersRouter);
 app.use('/admin', adminRouter);
+
+// RouterAPI
+app.use("/api/products", productsAPIRouter);
+app.use("/api/users", usersAPIRouter);
 
 
 // catch 404 and forward to error handler

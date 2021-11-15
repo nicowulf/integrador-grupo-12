@@ -50,7 +50,7 @@ const usersController = {
       password: bcryptjs.hashSync(req.body.password, 10),
       confirm_password: bcryptjs.hashSync(req.body.confirm_password, 10),
       avatar: req.file.filename,
-      role_id: 2,
+      role_id: 1,
     };
 
     db.User.create(userToCreate)
@@ -115,7 +115,6 @@ const usersController = {
   },
 
   profile: (req, res) => {
-    
     return res.render("users/profile", {
       userLogged: req.session.userLogged,
     });

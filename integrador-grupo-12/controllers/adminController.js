@@ -8,7 +8,13 @@ const Op = db.Sequelize.Op;
 
 const adminController = {
   index: (req, res) => {
-    db.Product.findAll()
+    db.Product.findAll({
+      include: [
+        { association: "origin" },
+        { association: "style" },
+        { association: "discount" },
+      ],
+    })
       .then((products) => {
         res.render("admin/admin", { products });
       })
@@ -81,18 +87,24 @@ const adminController = {
         .then(() => {
           res.redirect("../admin");
         })
-        .catch(error => res.send(error))
+        .catch((error) => res.send(error));
     }
   },
 
-  // db.Product.create(req.body)
-
   show: (req, res) => {
-    db.Product.findByPk(req.params.id)
-      .then((data) => {
-        res.render("admin/detail", { product: data });
+    db.Product.findByPk(req.params.id, {
+      include: [
+        { association: "origin" },
+        { association: "style" },
+        { association: "discount" },
+      ],
+    })
+      .then((product) => {
+        res.render(path.resolve(__dirname, "..", "views", "admin", "detail"), {
+          product,
+        });
       })
-      .catch(error => res.send(error))
+      .catch((error) => res.send(error));
   },
 
   edit: function (req, res) {
@@ -106,11 +118,10 @@ const adminController = {
       .then(([productToEdit, style, origin, discount]) => {
         res.render("admin/edit", { productToEdit, style, origin, discount });
       })
-      .catch(error => res.send(error))
+      .catch((error) => res.send(error));
   },
 
   update: function (req, res) {
-    
     db.Product.update(
       {
         brand: req.body.brand,
@@ -133,7 +144,7 @@ const adminController = {
       .then(() => {
         res.redirect("../");
       })
-      .catch(error => res.send(error))
+      .catch((error) => res.send(error));
   },
 
   destroy: function (req, res) {
@@ -143,30 +154,28 @@ const adminController = {
       .then(() => {
         res.redirect("admin");
       })
-      .catch(error => res.send(error))
+      .catch((error) => res.send(error));
   },
 
-  search: ( req, res) =>{
-        db.Product.findAll({
-          include: [
-            {
-              association: "style",
-              association: "origin",
-              association: "discount",
-            },
-          ],
-          where: {
-            name: { [Op.like]: `%${req.query.search}%` },
-          },
-        })
-          .then((resultado) => {
-            res.render(
-              path.resolve(__dirname, "..", "views", "admin", "administrar"),
-              { productos: resultado }
-            );
-          })
-          .catch((error) => res.send(error));
-    }
+  search: (req, res) => {
+    db.Product.findAll({
+      include: [
+        { association: "origin" },
+        { association: "style" },
+        { association: "discount" },
+      ],
+      where: {
+        name: { [Op.like]: `%${req.query.search}%` },
+      },
+    })
+      .then((resultado) => {
+        res.render(
+          path.resolve(__dirname, "..", "views", "admin", "administrar"),
+          { productos: resultado }
+        );
+      })
+      .catch((error) => res.send(error));
+  },
 };
   
 module.exports = adminController;

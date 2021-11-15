@@ -1,0 +1,17 @@
+<% include ../partials/head %>
+
+    <body>
+        <% include ../partials/header %>
+            <div class="container-styles">
+                <h3>Variedades</h3>                          
+                <% for( let i=0; i < filterStyles.length; i++){ %>
+                    <ul>
+                        <a href="#"><li class="style">
+                            <%= filterStyles[i] %>
+                        </li></a>
+                    </ul>        
+                <% } %> 
+            </div>
+        <% include ../partials/footer %>
+    </body>
+</html>

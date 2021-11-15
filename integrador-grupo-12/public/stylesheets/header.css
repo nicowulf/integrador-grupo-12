@@ -51,7 +51,7 @@
   
   .header__links a {
     position: relative;
-    font-size: 0.875rem;
+    font-size: 1rem;
     color: #9698a6;
     -webkit-transition: color 200ms ease-in-out;
     transition: color 200ms ease-in-out;

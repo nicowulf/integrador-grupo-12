@@ -1,59 +1,51 @@
 <% include ../partials/head %>
 
-    <body>
+  <body>
+    <% include ../partials/header %>
 
-        <% include ../partials/header %>
-
-        <section class="admin">
-          <div class="contianer">
+      <section class="admin-container">
+                <article class="col-12 ">
+                  <h3 class="display-4 text-white bg-info text-center pt-2">Administrador de Productos</h3>
+                </article>
+                <br>
+                <article class="col-12">
+                  <a href="/admin/create"><i class="far fa-plus-square"></i>  Agregar producto</a>
+                </article>
+                <article class="col-12" >
+                  <table class="table">
+                    <thead>
+                        <tr>
+                          <th scope="col">Id</th>
+                          <th scope="col">Marca</th>
+                          <th scope="col">Nombre</th>
+                          <th scope="col">Variedad</th>
+                          <th scope="col">Ver</th>
+                          <th scope="col">Editar</th>
+                          <th scope="col">Borrar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for (let i=0; i < products.length; i++) { %>
+                        <tr>
+                          <td><%= products[i].id%> </td>
+                          <td><%= products[i].brand%></td>
+                          <td>
+                            <% if (products[i].prod_name) { %>
+                              <%= products[i].prod_name%>
+                                <% } else {%>
+                              
+                              <% } %>
+                          </td>  
+                          <td><%= products[i].style.style%></td>
+                          <td><a href="/admin/detail/<%= products[i].id%>"><i class="fas fa-eye"></i></a></td>
+                          <td><a href="/admin/edit/<%= products[i].id%>"><i class="fas fa-edit"></i></a></td>
+                          <td><a href="/admin/delete/<%= products[i].id%>"><i class="fas fa-trash"></i></a></td>
+                        </tr>
+                        <% }; %>
+                    </tbody>
+                  </table> 
+                </article>       
+      </section>
             
-          </div>
-        </section>
-        
-    <section class="row">
-            <article class="col-12 ">
-              <h2 class="display-4 text-white bg-info text-center pt-2">Administrador de Productos</h2>
-            </article>
-            <article class="col-12">
-              <a href="/admin/create"><ion-icon name="add-circle-outline"></ion-icon>Agregar</a>
-            </article>
-            <article class="col-12" >
-            <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Marca</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Variedad</th>
-                    <th scope="col">Ver</th>
-                    <th scope="col">Editar</th>
-                    <th scope="col">Borrar</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <% for (let i=0; i < products.length; i++) { %>
-                  <tr>
-                    <td><%= products[i].id%> </td>
-                    <td><%= products[i].brand%></td>
-                    <td>
-                      <% if (products[i].prod_name) { %>
-                        <%= products[i].prod_name%>
-                          <% } else {%>
-                        
-                        <% } %>
-                    </td>  
-                    <td><%= products[i].style%></td>
-                    <td><a href="/admin/detail/<%= products[i].id%>">Ver</a></td>
-                    <td><a href="/admin/edit/<%= products[i].id%>">Editar</a></td>
-                    <td><a href="/admin/delete/<%= products[i].id%>">Borrar</a></td>
-                  </tr>
-                  <% }; %>
-                </tbody>
-              </table> 
-            </article>       
-          </section>
-            
-        <% include ../partials/footer %>
-    </body>
-
-</html>
+    <% include ../partials/footer %>
+  </body>

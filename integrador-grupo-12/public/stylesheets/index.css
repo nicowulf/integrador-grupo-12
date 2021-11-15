@@ -33,7 +33,7 @@ a, a:active, a:hover {
 }
 
 .button {
-  padding: 1rem;
+  padding: 0.4rem;
   background-color: black;
   border: 1px solid white;
   color: white;
@@ -61,10 +61,27 @@ img.fondo-slider {
 }
 
 
-/* CARRUSEL MARCAS
+/* CARRUSEL MARCAS*/
 .carousel-brands {
-  background-color: #BCBCBC;
-}*/
+  /* background-image: url("../images/imagenes-utiles/10carruselmarcas.jpg");
+  background-size: cover;
+  background-clip: border-box; */
+  max-height: 160px;
+  border: solid 1px red;
+} 
+
+.container-carousel-brands {
+  display: none;
+}
+
+img .fondo-carrousel {
+  width: 100%;
+}
+
+.fondo-carrousel {
+  width: 100%;
+  object-fit: cover;
+}
 
 .container-tips {
   background-color: white;

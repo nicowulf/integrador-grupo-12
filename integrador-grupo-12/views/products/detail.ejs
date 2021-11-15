@@ -1,42 +1,34 @@
 <% include ../partials/head %>
 
     <body>
+
         <% include ../partials/header %>
             <div class="detail-container">
                 <div class="product-main">
-                    <img src="/images/products/<%= product.image%>" width='250' height='350' alt="antares_Atlantica">
-                    <h1>
-                        <%= product.brand%>
-                    </h1>
-                    <p>
-                        <%= product.origin%>
-                    </p>
+                    <img src="/images/products/<%= product.image%>" width='250'
+                        height='350' alt="antares_Atlantica">
+                    <h1><%= product.brand%> </h1>
+                    <p><%= product.prod_name%></p>
                 </div>
                 <div class="product-description">
                     <div class="description-text">
-                        <p>
-                            <%= product.description%>
-                                <br> Cont. Neto por lata 473cm3
-                        </p>
+                        <p><%= product.description%></p>
                     </div>
                     <br>
                     <div class="product-data">
                         <p class="data-title">Ficha Técnica:</p>
                         <p>Graduación alcohólica: <%= product.alcohol%> %</p>
-                        <p>IBU: <%= product.ibu%>
-                        </p>
-                        <p>Amargor: <%= product.bitterness%>
-                        </p>
+                        <p>IBU: <%= product.ibu%></p>
+                        <p>Amargor: <%= product.bitterness%></p>
                     </div>
                     <div class="price flex flex-ai-center flex-jc-sb ">
-                        <p class="price"><br>$ <%= product.price%>
-                        </p>
-                        <a href="#" class="button">Agregar al carrito</a>
-                        
+                        <p class="price"><br>$ <%= product.price%></p>
+                        <a href="#" class="button">AGREGAR AL CARRITO</a>
+                        <a href="/" class="button">VOLVER</a>
                     </div>
                 </div>
 
-            <% include ../partials/footer %>
+            </div>
+        <% include ../partials/footer %>
     </body>
-
-    </html>
+       
