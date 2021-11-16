@@ -9,7 +9,7 @@
                 </article>
                 <br>
                 <article class="col-12">
-                  <a href="/admin/create"><i class="far fa-plus-square"></i>  Agregar producto</a>
+                  <a class="admin-icon" href="/admin/create"><i class="far fa-plus-square"></i>  Agregar producto</a>
                 </article>
                 <article class="col-12" >
                   <table class="table">
@@ -37,9 +37,9 @@
                               <% } %>
                           </td>  
                           <td><%= products[i].style.style%></td>
-                          <td><a href="/admin/detail/<%= products[i].id%>"><i class="fas fa-eye"></i></a></td>
-                          <td><a href="/admin/edit/<%= products[i].id%>"><i class="fas fa-edit"></i></a></td>
-                          <td><a href="/admin/delete/<%= products[i].id%>"><i class="fas fa-trash"></i></a></td>
+                          <td><a class="admin-icon" href="/admin/detail/<%= products[i].id%>"><i class="fas fa-eye"></i></a></td>
+                          <td><a class="admin-icon" href="/admin/edit/<%= products[i].id%>"><i class="fas fa-edit"></i></a></td>
+                          <td><a class="admin-icon" href="/admin/delete/<%= products[i].id%>"><i class="fas fa-trash"></i></a></td>
                         </tr>
                         <% }; %>
                     </tbody>

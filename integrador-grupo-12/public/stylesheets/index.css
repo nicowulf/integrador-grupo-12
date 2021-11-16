@@ -96,6 +96,10 @@ img .banner-bottom {
   padding: 24px;
 }
 
+i .container-tips {
+  color: black;
+}
+
 
 @media (max-width: 63.9375em) {
   
